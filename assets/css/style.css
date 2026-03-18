@@ -1,0 +1,141 @@
+/* ============================================
+   Glass Navbar Scroll Effect
+   #navbar starts transparent; JS adds .scrolled
+   ============================================ */
+
+#navbar {
+    /* ensures backdrop-filter works even before scroll */
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    transition: background-color 0.5s ease,
+                border-color 0.5s ease,
+                backdrop-filter 0.5s ease,
+                -webkit-backdrop-filter 0.5s ease,
+                box-shadow 0.5s ease,
+                padding 0.3s ease;
+}
+
+/* Light mode scrolled */
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.55) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Dark mode scrolled */
+html.dark #navbar.scrolled {
+    background-color: rgba(15, 15, 25, 0.60) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Shrink padding slightly on scroll for premium feel */
+#navbar.scrolled {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+}
+
+/* Ensure nav text stays readable on transparent navbar */
+#navbar:not(.scrolled) nav a,
+#navbar:not(.scrolled) h2,
+#navbar:not(.scrolled) button,
+#navbar:not(.scrolled) [id^="dir-toggle"],
+#navbar:not(.scrolled) [id^="theme-toggle"] {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ============================================
+   All values are original Tailwind base × 1.21:
+     py-2  (0.5rem)   → 0.605rem
+     px-4  (1rem)     → 1.21rem
+     px-6  (1.5rem)   → 1.815rem
+     h-7   (1.75rem)  → 2.1175rem
+     h-8   (2rem)     → 2.42rem
+     text-[10px]      → 12.1px
+     text-[16px]      → 19.36px
+     text-[20px]      → 24.2px
+     text-sm (14px)   → 16.94px
+================================================================= */
+
+header {
+    padding-top: 0.605rem !important;
+    padding-bottom: 0.605rem !important;
+    padding-left: 1.21rem !important;
+}
+
+@media (min-width: 1024px) {
+    header {
+        padding-left: 1.815rem !important;
+        padding-right: 1.815rem !important;
+    }
+}
+
+/* Nav link text (10px × 1.21 = 12.1px) */
+header nav a,
+header [class*="nav-"] {
+    font-size: 12.1px !important;
+}
+
+/* Brand / logo heading (14px × 1.21 = 16.94px) */
+header h2 {
+    font-size: 16.94px !important;
+}
+
+/* All Material Symbols icons in the header (20px × 1.21 = 24.2px) */
+header .material-symbols-outlined {
+    font-size: 24.2px !important;
+}
+
+/* Theme-toggle small icons (16px × 1.21 = 19.36px) */
+header #theme-toggle-nav .material-symbols-outlined {
+    font-size: 19.36px !important;
+}
+
+/* "Book Services" button (1.75rem × 1.21 = 2.1175rem) */
+header a.bg-primary[href="book-services.html"] {
+    height: 2.1175rem !important;
+    padding-left: 0.9075rem !important;
+    padding-right: 0.9075rem !important;
+}
+
+/* Account circle login button (2rem × 1.21 = 2.42rem) */
+header a[href="login.html"].rounded-full {
+    width: 2.42rem !important;
+    height: 2.42rem !important;
+}
+
+/* LTR/RTL direction toggle button */
+header #dir-toggle-nav {
+    font-size: 12.1px !important;
+    padding: 0.3025rem 0.605rem !important;
+}
+
+/* Theme toggle button */
+header #theme-toggle-nav {
+    padding: 0.3025rem !important;
+}
+
+/* Mobile menu trigger (2rem × 1.21 = 2.42rem) */
+header #mobile-menu-trigger {
+    height: 2.42rem !important;
+    width: 2.42rem !important;
+}
+
+/* Vertical separator line (1rem × 1.21 = 1.21rem) */
+header .h-4.w-px {
+    height: 1.21rem !important;
+}
+
+/* Dropdown nav link text */
+header .nav-dropdown a {
+    font-size: 12.1px !important;
+}
+
+/* Expand-more arrow icons in nav (12px × 1.21 = 14.52px) */
+header nav span.material-symbols-outlined {
+    font-size: 14.52px !important;
+}

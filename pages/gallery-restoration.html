@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2559f4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101422",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    screens: {
+                        'nav-mobile': '915px',
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-size: 24px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<header id="navbar" class="flex items-center justify-between whitespace-nowrap border-b border-solid border-transparent px-4 lg:px-6 py-2 bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500">
+<div class="flex items-center gap-3">
+    <div class="flex items-center gap-2">
+        <div class="relative group flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-1">
+                <h2 class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative">
+                    Precision Detail
+                    <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+                </h2>
+            </a>
+        </div>
+    </div>
+    <div class="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+    <a href="login.html" class="flex items-center justify-center size-8 rounded-full bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors border border-slate-200 dark:border-slate-700 active:scale-95" title="Login / Account">
+        <span class="material-symbols-outlined text-[20px]">account_circle</span>
+    </a>
+</div>
+<div class="flex flex-1 justify-end gap-3 lg:gap-4 items-center">
+<nav class="hidden nav-mobile:flex items-center gap-3 lg:gap-4">
+<div class="relative">
+<a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a href="index.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 1</a>
+<a href="home2.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 2</a>
+</div>
+</div>
+<a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="services.html">Services</a>
+<a class="nav-pricing text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="pricing.html">Pricing</a>
+<a class="nav-gallery hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors text-primary font-black scale-105" href="gallery.html">Gallery</a>
+<a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="blog.html">Blog</a>
+<a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="contact.html">Contact</a>
+<a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="about.html">About</a>
+<div class="relative">
+<a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a href="dashboard.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
+<a href="user-profile.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+</div>
+</div>
+</nav>
+<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-4 ml-2">
+<button id="dir-toggle-nav" class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold tracking-widest bg-white/50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors">LTR</button>
+<button id="theme-toggle-nav" class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary bg-white/50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
+</button>
+<a href="book-services.html" class="hidden nav-mobile:flex items-center justify-center rounded-lg h-7 px-3 bg-primary text-white text-[10px] font-black uppercase tracking-wider transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+    Book Services
+</a>
+<!-- Mobile Menu Trigger -->
+<button id="mobile-menu-trigger" class="nav-mobile:hidden flex items-center justify-center rounded-lg h-8 w-8 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 transition-colors active:scale-90">
+    <span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+</div>
+</div>
+</header>
+
+<!-- Mobile Drawer Overlay -->
+<div id="drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300"></div>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[280px] bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-white/5 shadow-2xl flex flex-col overflow-hidden">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6">
+        <div class="flex items-center gap-2">
+            <h2 class="text-slate-900 dark:text-white text-lg font-black leading-tight tracking-tighter uppercase italic relative">
+                Precision Detail
+                <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+            </h2>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-500 dark:text-slate-600 dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+        <nav class="flex flex-col gap-6">
+            <!-- Home Links -->
+            <div>
+                <div class="flex items-center justify-between text-slate-900 dark:text-white font-bold text-xl mb-4 group cursor-pointer border-b border-slate-200 dark:border-slate-900/40 dark:border-white/10 pb-2">
+                    Home
+                    <span class="material-symbols-outlined text-sm opacity-50">chevron_right</span>
+                </div>
+                <div class="flex flex-col gap-3 pl-4 border-l border-slate-200 dark:border-slate-900/40 dark:border-white/10 ml-1">
+                    <a href="index.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors flex items-center justify-between">
+                        Version 1
+                        <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded uppercase tracking-widest opacity-50">Default</span>
+                    </a>
+                    <a href="home2.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors">Version 2</a>
+                </div>
+            </div>
+
+            <a href="services.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Services
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="pricing.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Pricing
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="gallery.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Gallery
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="blog.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Blog
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="contact.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Contact
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+
+            <!-- Dashboard/Profile -->
+            <div class="mt-4 pt-6 border-t border-slate-200 dark:border-white/5 space-y-4">
+                 <a href="dashboard.html" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+                <a href="user-profile.html" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    User Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Footer Section -->
+    <div class="p-6 bg-slate-50 dark:bg-white/5 border-t border-slate-200 dark:border-slate-900/40 dark:border-white/10 space-y-6">
+        <!-- Book Service Action -->
+        <a href="book-services.html" class="flex items-center justify-center gap-2 w-full h-14 bg-[#ec5b13] text-white font-black uppercase tracking-widest text-sm rounded-2xl shadow-xl shadow-[#ec5b13]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <span class="material-symbols-outlined text-lg">auto_awesome</span>
+            Book Service
+        </a>
+
+        <!-- Social Icons -->
+        <div class="flex items-center justify-center gap-6 text-slate-400 dark:text-slate-600 dark:text-white/40 pt-2">
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">public</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">share</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">alternate_email</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">chat_bubble</span>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-[9px] text-center text-slate-500 dark:text-white/30 uppercase tracking-[0.2em]">
+            © 2026 Precision Detail Automotive Group
+        </p>
+    </div>
+</div><!-- End Mobile Drawer -->
+<main class="flex-1 px-6 py-12 lg:px-20 pt-[5%]">
+<div class="max-w-[1200px] w-full px-6 md:px-10 py-12">
+<nav class="flex flex-wrap items-center gap-2 mb-6">
+<a class="text-slate-400 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+<span class="text-slate-500 dark:text-slate-600 text-sm">/</span>
+<a class="text-slate-400 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="gallery.html">Gallery</a>
+<span class="text-slate-500 dark:text-slate-600 text-sm">/</span>
+<span class="text-slate-900 dark:text-white text-sm font-bold">Restorations</span>
+</nav>
+<!-- Hero Section -->
+<div class="mb-12">
+<h1 class="text-slate-900 dark:text-white text-5xl font-black tracking-tight mb-4">Full Restorations</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl">
+                    From neglect to concours-level perfection. Witness the meticulous multi-stage transformations of the world's finest automobiles.
+                </p>
+</div>
+<!-- Categories -->
+<div class="flex overflow-x-auto border-b border-slate-200 dark:border-slate-800 mb-12 no-scrollbar">
+<a class="whitespace-nowrap px-6 py-4 border-b-2 border-primary text-primary font-bold text-sm" href="#">All Projects</a>
+<a class="whitespace-nowrap px-6 py-4 border-b-2 border-transparent text-slate-500 hover:text-primary font-bold text-sm transition-colors" href="#">Classic Muscle</a>
+<a class="whitespace-nowrap px-6 py-4 border-b-2 border-transparent text-slate-500 hover:text-primary font-bold text-sm transition-colors" href="#">Vintage European</a>
+<a class="whitespace-nowrap px-6 py-4 border-b-2 border-transparent text-slate-500 hover:text-primary font-bold text-sm transition-colors" href="#">Modern Supercars</a>
+</div>
+<!-- Restoration Cards -->
+<div class="grid grid-cols-1 gap-16">
+<!-- Project 1 -->
+<section class="flex flex-col gap-8">
+<div class="flex items-end justify-between border-l-4 border-primary pl-6">
+<div>
+<span class="text-primary font-bold uppercase tracking-widest text-xs">Project #842</span>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">1967 Mustang Fastback GT</h2>
+<p class="text-slate-500">Concours restoration • 18-month duration</p>
+</div>
+<button class="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">
+                            View Full Documentation <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="relative group overflow-hidden rounded-xl bg-slate-800 aspect-video">
+<img class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Rusted abandoned classic mustang in barn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuYHrM5CpyzQT-UtJLrGL5bkoZxvA05Quo3j_GHmJROVemrat7mQr3yU4cW6FWRZOqh2MNLIkA21ETChaTW9ppmtqoZjydArw5YSlX2t3G1pF96C24F4T1V8yAgxAD-739TgmcmTSbUxqo3IwHL5gicw1wYQIb5q-nf3ZpRdEeDTDY-1BKDmxY2yA7c5OB2FPS5FJmm-yF2jwX1U8yXvwyA0i7u_XVlAdP__kA_PX-X0Ygk76a7gFWH7SALLs9Z3obIlPkhkDOemk"/>
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-white text-xs font-bold uppercase">Before</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl bg-slate-800 aspect-video">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="Pristine restored cherry red mustang fastback" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtaHqVe3iF2qCugXzp76qXobf4kZPIbj_2DwxSt_yqyeMhryFn3dgqSm5HXNrsyhMo9IYH7PnI6EYoRxumagtSHNwJRINDIfFX30aP23DHznGRzwZEyaFDPAip9colz8G5TqNHgrpCNvU-irfi9tPIK8vX45Q9Dlqq4fr39zTFQPxKAg6oOyrNZwxKDAHCeiaHWOMLHeJvMUkKwBrQo-hzyTjg-6uRDVlDKv20C_Ai0uJbtQ5VuY320QXZgKDs0bjOFOJsm_6ovYk"/>
+<div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded text-white text-xs font-bold uppercase">After</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-lg">
+<h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Engine</h4>
+<p class="text-sm font-semibold">289 V8 Blueprinted</p>
+</div>
+<div class="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-lg">
+<h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Paint</h4>
+<p class="text-sm font-semibold">Candy Apple Red Metallic</p>
+</div>
+<div class="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-lg">
+<h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Interior</h4>
+<p class="text-sm font-semibold">Deluxe Parchment Leather</p>
+</div>
+<div class="bg-slate-100 dark:bg-slate-900/50 p-4 rounded-lg">
+<h4 class="text-xs font-bold text-slate-400 uppercase mb-1">Condition</h4>
+<p class="text-sm font-semibold text-primary">Concours Gold</p>
+</div>
+</div>
+</section>
+<!-- Project 2 -->
+<section class="flex flex-col gap-8 pt-12 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-end justify-between border-l-4 border-primary pl-6">
+<div>
+<span class="text-primary font-bold uppercase tracking-widest text-xs">Project #845</span>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Porsche 911 Carrera 2.7 RS</h2>
+<p class="text-slate-500">Preservation &amp; Paint Correction • 6-month duration</p>
+</div>
+<button class="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">
+                            View Full Documentation <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="relative group overflow-hidden rounded-xl bg-slate-800 aspect-video">
+<img class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Oxidized white porsche paint before detailing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUTvk4HQXHUsDa_lreTzHS9JQA-jc17nEFEL2gV5MPjCdcahubSxKzHyC18zTeyjxIrpHzrhrxZVPuVHMiKRQXlEwb3vCvX7nTi5IvcuFSeMBK6MxMFxWw_0q2F49vj8visSH3uMU7qmUUkjkGmaRBvBFvAw-29VFH7Jb_YzgwZa6uwt7vZrLUXtC_rwufi7dssyhv9z_zc7cTAz0_bbtmuABDcg3G7gc85J31ZwvdeSSv0SxAFU2lBkeFenDM3qgdid78jb9Wouo"/>
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-white text-xs font-bold uppercase">Before</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl bg-slate-800 aspect-video">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="High gloss white porsche 911 reflecting light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCStsxazwEebpKLVA_7As7ZdNt8oT8C3GeTt132JZjpuTOfcVX7UFDSdRFztax7LRRYOIuQ4CHd6LumK49ariSJwrfy5LncH16CfeDkx71vIYZKliOS2c0phsRCyJhKjHYf-mOqu5sGDRv0idMZ3BDewQysTv6guLVPd4bgS0DAM73YcWOYTZTXtwR7IlI-LrZCi-2bA-VyYMXyNDS0ruEbDDTNjQtrcT5hDGsItjX8pb_CEQEoY0mA1vSrdIz2Gu5hDS0ZalmVlMA"/>
+<div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded text-white text-xs font-bold uppercase">After</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="relative rounded-lg overflow-hidden aspect-square group">
+<img class="object-cover w-full h-full transition duration-500 group-hover:scale-110" data-alt="Extreme close up of engine detailing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC80MJB0256AgzQ5Yh23VsCUK3vp9LFDTVwxq7ZorDaUvPNE5gEWtHQImr4z8hhRIjh7Yvc-wbpYZ5r1WTm9l6k-gpl8xny_o3KgnxYVDWl62H3bBqYziFU_RCZSNahTuoZvWHCgNDPwZqPrKDN2_NlgNsXu3nDnt55PkZKZRL7Si2UWL7ct7ZnyJ9EHn4xb0r4j8t8ah5W_BWxKFjIz0MbFGY8vRjmW3N4FgAE5YYA0x7PoevXTrUT6hLvdH5-BiL6Yc1QX10Zyo4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<p class="text-white text-sm font-bold">Stage 1: Mechanical Steam Clean</p>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden aspect-square group">
+<img class="object-cover w-full h-full transition duration-500 group-hover:scale-110" data-alt="Hand sanding vehicle body panels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQkJngvGuRRLGm97SWJQXXvDzD1uEgSWpvX5s1LLH9kItr1w_QuHzPHsyZmZQwZr_YHDmTIMfBJNscvDquQDMro4ZifPJt7jzdlqlUy-AIssEu8dMCQ4dd1xx1YSfyOaJJv7D7sw0jpgvlx9hUIR-FPzv92qtfmL-WveGWkSUWF38QHkDe1K6YQNtACDl0C9QqQb6PA0eSnVaEDHq4EjD_cvbOdWwpvmnsJ5iCbn0SSZvgHj65z1asJhmoCMXe3HjRS7n5h9Ylmog"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<p class="text-white text-sm font-bold">Stage 2: Precision Paint Correction</p>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden aspect-square group">
+<img class="object-cover w-full h-full transition duration-500 group-hover:scale-110" data-alt="Interior leather restoration progress" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0OmmEAxqqjghezo3c-yQihGNh6UO11iWo7LFHVh_8WVZsTg-4tDwI9mchCZjHIn6CcW6OL4CVHBVORxM7THCBLBLnyNfHTlgW73wv1NKXTo4kQBCtyk5eCjGQicy5ayfAObE45IHkjMKAJhFxcEwcZYdYj6WVQVFNbAq65SLUZ6FHr5Qj_deV--B_DUW0SGuMVdeD2RFQlL-z0arQWfa3lSJa1QfWHOkfAOMISfLmX__Nj_PJ_ufv-NtNjq0vQ5yq1W3ws19t5BU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<p class="text-white text-sm font-bold">Stage 3: Interior Connollising</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Project 3 -->
+<section class="flex flex-col gap-8 pt-12 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-end justify-between border-l-4 border-primary pl-6">
+<div>
+<span class="text-primary font-bold uppercase tracking-widest text-xs">Project #850</span>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Ferrari 250 GTO Tribute</h2>
+<p class="text-slate-500">Full Coachwork Restoration • 24-month duration</p>
+</div>
+<button class="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">
+                            View Full Documentation <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="relative group overflow-hidden rounded-xl bg-slate-800 aspect-video">
+<img class="object-cover w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="Stripped metal shell of a classic ferrari" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvKI1a0-pjWw6SwMKGUzMCUYCPZn2Q-TzZxfSoZXGfRPx4nYsx19doTBbnvMNC20A7NZrEcmbE7sUJmwMJsVxOBLaZfFnGc2ljo-k6piQWQzMiOmNK-azod0DnYhiDU1oFADMqmrY7ERJnxB1CKmXl13-wJTN_RQqB9fX8oveZcuU5dFJtuPr7DdbCx_ucAr5zmNRelQNp8SqHT-kvUEDqXTs0-7Jfc6AiKOGs0dH1n66B0LQdmAQPSLH7-33s_6naC_-G2b2W3AI"/>
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-white text-xs font-bold uppercase">Before</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl bg-slate-800 aspect-video">
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" data-alt="Mirror finish red ferrari in studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0MGkgB4KsgV1BfqWlNrhiPcD-B_BywZl_G2StTKPM-h63o5P7SEdSwULe8KqkNO85a4kiLarUYUj4k277ZWUI14Z0ek80hp4cJKVAWr_hgWX0oGkuRkYrQzoKg5i88dDS8yCgaSWh7YFeHLXW2RTLL-BMxcaq70hxFZNRN_-OuAmF-Jnpd7T0I_N3LWsaNWWETpgRsYzNicy6Dq36gohfVj2jc-lf5NWW14tje-haILmO6xJ3lFz_WpQecBVTYh08Hjl_YaL4_qg"/>
+<div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded text-white text-xs font-bold uppercase">After</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Call to Action -->
+<div class="mt-24 p-12 rounded-xl bg-primary relative overflow-hidden text-center text-white">
+<div class="relative z-10">
+<h2 class="text-4xl font-black mb-6">Ready to restore your legacy?</h2>
+<p class="text-white/80 max-w-xl mx-auto mb-8 text-lg">
+                        Our waitlist for full restorations is currently 6 months. Secure your consultation today to begin the journey.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-8 py-4 rounded-lg font-black uppercase tracking-wider hover:bg-slate-100 transition-colors">Start Restoration Request</button>
+<button class="bg-primary/20 border border-white/30 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-black uppercase tracking-wider hover:bg-primary/30 transition-colors">Download Price Guide</button>
+</div>
+</div>
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 100">
+<path d="M0 0 L100 100 L0 Z" fill="url(#grad1)"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:white;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:transparent;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="max-w-7xl mx-auto px-6 lg:px-20 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+                <div class="flex items-center gap-2 mb-6">
+                    <h4 class="text-slate-900 dark:text-white font-black text-xl tracking-tighter uppercase italic relative">
+                        Precision Detail
+                        <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+                    </h4>
+                </div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining automotive excellence through meticulous craftsmanship and premium protection services.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Quick Links</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Support</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Subscribe</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
+<div class="flex gap-2">
+<input class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50" placeholder="Email" type="email"/>
+<button class="bg-primary text-white px-4 rounded-lg h-10 hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+                    © 2025 Precision Detail. All rights reserved.
+                </div>
+</div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body></html>

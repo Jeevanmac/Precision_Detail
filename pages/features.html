@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="../assets/js/tailwind-config.js"></script>
+<title>Features | Precision Detail</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<header id="navbar" class="flex items-center justify-between whitespace-nowrap border-b border-solid border-transparent px-4 lg:px-6 py-2 bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500">
+<div class="flex items-center gap-3">
+        <div class="relative group flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-1">
+                <h2 class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative">
+                    Precision Detail
+                    <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+                </h2>
+            </a>
+        </div>
+    <div class="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+    <a href="login.html" class="flex items-center justify-center size-8 rounded-full bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors border border-slate-200 dark:border-slate-700 active:scale-95" title="Login / Account">
+        <span class="material-symbols-outlined text-[20px]">account_circle</span>
+    </a>
+</div>
+<div class="flex flex-1 justify-end gap-3 lg:gap-4 items-center">
+<nav class="hidden nav-mobile:flex items-center gap-3 lg:gap-4">
+<div class="relative">
+<a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a href="index.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 1</a>
+<a href="home2.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 2</a>
+</div>
+</div>
+<a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="services.html">Services</a>
+<a class="nav-pricing text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="pricing.html">Pricing</a>
+<a class="nav-gallery text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="gallery.html">Gallery</a>
+<a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="blog.html">Blog</a>
+<a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="contact.html">Contact</a>
+<a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="about.html">About</a>
+<div class="relative">
+<a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a href="dashboard.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
+<a href="user-profile.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+</div>
+</div>
+</nav>
+<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-4 ml-2">
+<button id="dir-toggle-nav" class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold tracking-widest bg-white/50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors">LTR</button>
+<button id="theme-toggle-nav" class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary bg-white/50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
+</button>
+<a href="book-services.html" class="hidden nav-mobile:flex items-center justify-center rounded-lg h-7 px-3 bg-primary text-white text-[10px] font-black uppercase tracking-wider transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+    Book Services
+</a>
+<!-- Mobile Menu Trigger -->
+<button id="mobile-menu-trigger" class="nav-mobile:hidden flex items-center justify-center rounded-lg h-8 w-8 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 transition-colors active:scale-90">
+    <span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+</div>
+</div>
+</header>
+
+<!-- Mobile Drawer Overlay -->
+<div id="drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300"></div>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[280px] bg-white/80 dark:bg-[#030712]/80 backdrop-blur-xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-slate-900/40 dark:border-white/10 shadow-2xl flex flex-col overflow-hidden">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6">
+        <div class="flex items-center gap-4">
+            <h2 class="text-slate-900 dark:text-white text-lg font-black leading-tight tracking-tighter uppercase italic relative">
+                Precision Detail
+                <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+            </h2>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-500 dark:text-slate-600 dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+        <nav class="flex flex-col gap-6">
+            <!-- Home Links -->
+            <div>
+                <div class="flex items-center justify-between text-slate-900 dark:text-white font-bold text-xl mb-4 group cursor-pointer border-b border-slate-200 dark:border-slate-900/40 dark:border-white/10 pb-2">
+                    Home
+                    <span class="material-symbols-outlined text-sm opacity-50">chevron_right</span>
+                </div>
+                <div class="flex flex-col gap-3 pl-4 border-l border-slate-200 dark:border-slate-900/40 dark:border-white/10 ml-1">
+                    <a href="index.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors flex items-center justify-between">
+                        Version 1
+                        <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded uppercase tracking-widest opacity-50">Default</span>
+                    </a>
+                    <a href="home2.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors">Version 2</a>
+                </div>
+            </div>
+
+            <a href="services.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Services
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="pricing.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Pricing
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="gallery.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Gallery
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="blog.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Blog
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="contact.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Contact
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+
+            <!-- Dashboard/Profile -->
+            <div class="mt-4 pt-6 border-t border-slate-200 dark:border-white/5 space-y-4">
+                 <a href="dashboard.html" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+                <a href="user-profile.html" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    User Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Footer Section -->
+    <div class="p-6 bg-slate-50 dark:bg-white/5 border-t border-slate-200 dark:border-slate-900/40 dark:border-white/10 space-y-6">
+        <!-- Book Service Action -->
+        <a href="book-services.html" class="flex items-center justify-center gap-2 w-full h-14 bg-[#ec5b13] text-white font-black uppercase tracking-widest text-sm rounded-2xl shadow-xl shadow-[#ec5b13]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <span class="material-symbols-outlined text-lg">auto_awesome</span>
+            Book Service
+        </a>
+
+        <!-- Social Icons -->
+        <div class="flex items-center justify-center gap-6 text-slate-400 dark:text-slate-600 dark:text-white/40 pt-2">
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">public</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">share</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">alternate_email</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">chat_bubble</span>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-[9px] text-center text-slate-500 dark:text-white/30 uppercase tracking-[0.2em]">
+            © 2026 Precision Detail Automotive Group
+        </p>
+    </div>
+</div><!-- End Mobile Drawer -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- Hero Section -->
+<div class="relative rounded-xl overflow-hidden mb-16">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 to-transparent"></div>
+<div class="h-[400px] w-full bg-cover bg-center" data-alt="Macro shot of water beading on car paint" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdRY55My1RfkxbHPqqMJDtqQxxqI7YAteGFV0nGtVMSiTCjE5qDs35M2VwBfYO4Qi5wHEZAhiO0GLYVB7_CwWl5KY1126XgSgU4XLELtcXVe2lgegq6YFb1Qgro81E7z6Elyvvnvqtl_kd-3A4HSN70P26o6hQhSQzIkNVZov_Z_yaNQRad0irwv8KHz7f438x41yvuo_tZPva08gX06tY51gM0y0AROhTEh5Xjb-p5VvYgyGeQ_r19imYZww7cOmrIbBeOsv5aCQ");'></div>
+<div class="absolute bottom-0 left-0 p-8 md:p-12">
+<span class="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-4 border border-primary/30">Technology Driven</span>
+<h1 class="text-4xl md:text-6xl font-black text-white leading-tight max-w-3xl">
+                    Engineering the <br/><span class="text-primary">Ultimate Shine</span>
+</h1>
+<p class="mt-4 text-slate-200 text-lg max-w-xl">
+                    We combine proprietary chemical engineering with master-level craftsmanship to protect your investment at a molecular level.
+                </p>
+</div>
+</div>
+<!-- Section: Precision Detailing Technology -->
+<div class="mb-20">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div class="max-w-2xl">
+<h2 class="text-3xl font-extrabold mb-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">magnification_small</span>
+                        Precision Detailing Tech
+                    </h2>
+<p class="text-slate-600 dark:text-slate-400">Our process utilizes advanced diagnostic tools to identify and correct surface imperfections invisible to the naked eye.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:underline" href="#">
+                    View Process <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group">
+<div class="aspect-video rounded-xl overflow-hidden mb-4 bg-slate-200 dark:bg-slate-800">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of ceramic coating application" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVtbvPhF449XQWBImS9RR-X6vXlCnybWpEH_nFokZFyB8_ZSaK3O80Ny0Rgwl0WHeFCBugv6O6K6ntMUvA1Ig_oMit6dBenelPMo_-vQAphDPeXgywquBMGR_oBNFMnVWPKXcd47VeEgrGDiRGI4IWSQ6PAsoqifFL1ZmQmptCKh5J4bguPwSy2QdsnijOxR8tpsnwrzpL5gVF_Yfu3MMSubgZxojy6BjC36AZobWzGsKveHYx2ncRqkMEAKX0-GAjeMIFgIoT4cY"/>
+</div>
+<h3 class="text-xl font-bold mb-2">Nanotechnology Coatings</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Multi-layer ceramic protection that bonds at a molecular level for permanent brilliance and self-cleaning properties.
+                    </p>
+</div>
+<div class="group">
+<div class="aspect-video rounded-xl overflow-hidden mb-4 bg-slate-200 dark:bg-slate-800">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Paint correction with machine polisher" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW8WvIn8Mfbgs49bCbUXcjWFwRPauW6uNz8FQ6M0rIqMacM-9DaPU45GZwhHdeioUqPzL70tC9k-Z_TUkXVArs-UcvRESmC3m2gsjccv8QDmc_j9UO4wDgL-n34ls1yVdbLAzl4TxjvOoUVaw5oTnO9aU7RGSVPY1zsisfJKYtvJeiZgyzBYOm5yHzX-XF-p8gfxIzvlRsywO4mQ1Yd_bhQOnX3hUet4n7h4F_QgzITMMLIufU9te5ylrai3KpK6WOU4CJ4mcl6fk"/>
+</div>
+<h3 class="text-xl font-bold mb-2">Multi-Stage Correction</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Using digital thickness gauges and multi-spectrum lighting to restore 99% of surface clarity without compromising the clear coat.
+                    </p>
+</div>
+<div class="group">
+<div class="aspect-video rounded-xl overflow-hidden mb-4 bg-slate-200 dark:bg-slate-800">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Interior steam cleaning process" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASTg8dUQVtE-dN7r7YI_0AvviV2XlFBYNfdQEkmPgyjj-XRx99WC_uVi0auzriCZCOFhmJrO_F6E3qYi2ZLa0eehQkJjVsSIGB0e5e5Qj-MiX2rhSRiMviUK06sOnDLljVECqiwfXQVKv7_nUvOoJfV56kfu1qMERs5Nr6-RoS46BNMEORRppzKSaoAi3pbVLQuICahlk5o2f7XFGdR_egie5ua0SmvZnP2iqu7-cXf8Cf4dw2lPoMJca9K-r4Wk840ZGVog7u-tM"/>
+</div>
+<h3 class="text-xl font-bold mb-2">Atmospheric Sterilization</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Medical-grade steam and ozone treatments to ensure a pristine, allergen-free cabin environment beyond traditional cleaning.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Section: Ceramic Coating Layers -->
+<div class="bg-slate-100 dark:bg-primary/5 rounded-2xl p-8 md:p-12 mb-20">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-extrabold mb-6">The Anatomy of Protection</h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">1</div>
+<div>
+<h4 class="font-bold text-lg">Base Primer Layer</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Prepares the paint surface for maximum chemical bonding, filling microscopic pores.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">2</div>
+<div>
+<h4 class="font-bold text-lg">9H Structural Layer</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">A thick, hard ceramic foundation that provides scratch resistance and UV protection.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">3</div>
+<div>
+<h4 class="font-bold text-lg">Hydrophobic Top Coat</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Ultra-smooth finish that repels water, dirt, and road grime with high contact angles.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full" data-alt="Luxury car with glass-like finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPEHa_EP8Vt8-_kelPWY6gAgbUMxdv6Xbg5OUQVID4-WpZXkIPdX9YhW-U9zAzdu5v7RwwwJBHrtunx6kj3yILrSlKo6iqCiWcyTIPsStmvOESPPLWAFAi_ce9VyLBLNte2ywgDLDmX49heVlEnRjMp4P9-egRu8hPYHz-puGy3cWhi9CFCA1X4nJA0BNgdsxgIKZQUzrvWA8GnecvpbG3pOAa8hb8Q4wkfvRbn-bcIFNUi-hZwqSFv69x5UqfnUBv4d-45PlFHRA"/>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-primary p-6 rounded-xl text-white hidden md:block max-w-[200px]">
+<p class="text-2xl font-black italic">10+ YEARS</p>
+<p class="text-xs uppercase tracking-widest font-bold opacity-80">Guaranteed Durability</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Precision Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 bg-background-light dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">light_mode</span>
+<h4 class="font-bold mb-2">Multi-Spectrum Lighting</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">3500K to 6500K lighting to reveal swirls in any environmental condition.</p>
+</div>
+<div class="p-6 bg-background-light dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">straighten</span>
+<h4 class="font-bold mb-2">Ultrasonic Measurement</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Non-destructive thickness mapping of clear coat layers before polishing.</p>
+</div>
+<div class="p-6 bg-background-light dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">air</span>
+<h4 class="font-bold mb-2">HEPA Filtration</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Dust-free studio environment ensuring pure application of coatings.</p>
+</div>
+<div class="p-6 bg-background-light dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">science</span>
+<h4 class="font-bold mb-2">Chemical pH Balance</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Custom formulated solutions safe for delicate exotic materials.</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="max-w-7xl mx-auto px-6 lg:px-20 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+                <div class="flex items-center gap-2 mb-6">
+                    <h4 class="text-slate-900 dark:text-white font-black text-xl tracking-tighter uppercase italic relative">
+                        Precision Detail
+                        <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+                    </h4>
+                </div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining automotive excellence through meticulous craftsmanship and premium protection services.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Quick Links</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Support</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Subscribe</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
+<div class="flex gap-2">
+<input class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50" placeholder="Email" type="email"/>
+<button class="bg-primary text-white px-4 rounded-lg h-10 hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+                    © 2024 Precision Detail. All rights reserved.
+                </div>
+</div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body></html>

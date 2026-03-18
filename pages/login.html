@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Login | Precision Detail</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../assets/js/tailwind-config.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<style>
+body {
+  font-family: 'Public Sans', sans-serif;
+}
+</style>
+</head>
+
+<body class="bg-gray-100 dark:bg-[#030712] transition-all duration-500 min-h-screen flex items-center justify-center px-4">
+
+<!-- TOP BAR -->
+<div class="fixed top-5 left-1/2 -translate-x-1/2 flex items-center gap-4 z-50">
+
+  <!-- BACK BUTTON -->
+  <button onclick="window.location.href='index.html'"
+    class="flex items-center gap-2 px-4 py-2 rounded-full
+    bg-white/70 dark:bg-slate-800/70 backdrop-blur-md
+    border border-gray-200 dark:border-white/10
+    text-gray-800 dark:text-white text-sm font-semibold
+    hover:scale-105 transition">
+
+    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+    Back
+  </button>
+
+  <!-- THEME TOGGLE -->
+  <button id="theme-toggle-auth"
+    class="p-2 rounded-full
+    bg-white/70 dark:bg-slate-800/70 backdrop-blur-md
+    border border-gray-200 dark:border-white/10
+    text-gray-800 dark:text-white
+    hover:scale-105 transition">
+
+    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+  </button>
+
+</div>
+
+<!-- CARD -->
+<div class="w-full max-w-3xl grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden
+bg-white dark:bg-slate-900/60 backdrop-blur-xl
+border border-gray-200 dark:border-white/10 shadow-2xl">
+
+  <!-- IMAGE -->
+  <div class="relative hidden lg:block overflow-hidden group">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_vsxBP279VvA7EPfOiSLx6UpirErBqRkh3rV2l6wVkpX5BPnF8y3zSnbVBQTdlj7Rp0JNafo6Xi3pQYa1Fs1V9gFnbd6_SQD9TBLAGgEHRcFRqr0RtMXh9nCEa2j4_OoE8TQ56hq8kEdSqBjOi6vlNlME9tLq5Fy7gOnotc9cQ5sfXOjBbFRRxHUMemoQO0nt-OPcUML2_3B3AazzzdFo2J0snHFWFynkHBw1Xji31ENYYkP2S7UT5psoi3XAZG72R8OAiQ18DAU"
+    class="absolute inset-0 w-full h-full object-cover"/>
+
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+    <div class="relative z-10 p-6 h-full flex flex-col justify-end">
+      <span class="text-orange-500 text-xs font-bold uppercase tracking-widest">Excellence</span>
+      <h3 class="text-white text-2xl font-bold mt-2">Elite Care for Elite Vehicles</h3>
+      <p class="text-gray-300 text-sm mt-2">Premium detailing experience.</p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="p-6 flex flex-col justify-center">
+
+    <h1 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Welcome Back</h1>
+    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Login to continue</p>
+
+    <form class="space-y-4">
+
+      <!-- EMAIL -->
+      <div>
+        <label class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Email</label>
+        <div class="relative mt-1">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">alternate_email</span>
+          <input type="email"
+            class="w-full pl-10 pr-3 py-2 rounded-lg
+            bg-gray-100 dark:bg-slate-800/50
+            border border-gray-200 dark:border-white/10
+            text-sm text-gray-900 dark:text-white
+            focus:ring-2 focus:ring-orange-500 outline-none"
+            placeholder="name@example.com"/>
+        </div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div>
+        <label class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Password</label>
+        <div class="relative mt-1">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">lock</span>
+          <input type="password"
+            class="w-full pl-10 pr-10 py-2 rounded-lg
+            bg-gray-100 dark:bg-slate-800/50
+            border border-gray-200 dark:border-white/10
+            text-sm text-gray-900 dark:text-white
+            focus:ring-2 focus:ring-orange-500 outline-none"
+            placeholder="••••••••"/>
+
+          <!-- SHOW PASSWORD -->
+          <span onclick="togglePassword(this)"
+            class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400">
+            visibility
+          </span>
+        </div>
+      </div>
+
+      <!-- LOGIN -->
+      <button type="submit"
+        class="w-full py-2 rounded-lg bg-orange-600 text-white font-bold text-sm
+        hover:brightness-110 transition active:scale-95">
+        Secure Login
+      </button>
+
+      <div class="mt-4 text-center">
+  <p class="text-sm text-gray-500 dark:text-gray-400">
+    Don’t have an account?
+    <a href="register.html" class="text-orange-500 font-semibold hover:underline ml-1">
+      Create one
+    </a>
+  </p>
+</div>
+      
+    </form>
+
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+// PASSWORD TOGGLE
+function togglePassword(el) {
+  const input = el.previousElementSibling;
+  if (input.type === "password") {
+    input.type = "text";
+    el.textContent = "visibility_off";
+  } else {
+    input.type = "password";
+    el.textContent = "visibility";
+  }
+}
+</script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

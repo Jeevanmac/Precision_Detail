@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2559f4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101422",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    screens: {
+                        'nav-mobile': '915px',
+                    },
+                },
+            },
+        }
+    </script>
+<title>Precision Detail - Interior Restoration Gallery</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
+<header id="navbar" class="flex items-center justify-between whitespace-nowrap border-b border-solid border-transparent px-4 lg:px-6 py-2 bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-500">
+<div class="flex items-center gap-3">
+    <div class="flex items-center gap-2">
+        <div class="relative group flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-1">
+                <h2 class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative">
+                    Precision Detail
+                    <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+                </h2>
+            </a>
+        </div>
+    </div>
+    <div class="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+    <a href="login.html" class="flex items-center justify-center size-8 rounded-full bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors border border-slate-200 dark:border-slate-700 active:scale-95" title="Login / Account">
+        <span class="material-symbols-outlined text-[20px]">account_circle</span>
+    </a>
+</div>
+<div class="flex flex-1 justify-end gap-3 lg:gap-4 items-center">
+<nav class="hidden nav-mobile:flex items-center gap-3 lg:gap-4">
+<div class="relative">
+<a class="nav-home dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="index.html">Home <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a href="index.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 1</a>
+<a href="home2.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Home 2</a>
+</div>
+</div>
+<a class="nav-services text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="services.html">Services</a>
+<a class="nav-pricing text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="pricing.html">Pricing</a>
+<a class="nav-gallery hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors text-primary font-black scale-105" href="gallery.html">Gallery</a>
+<a class="nav-blog text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="blog.html">Blog</a>
+<a class="nav-contact text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="contact.html">Contact</a>
+<a class="nav-about text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors" href="about.html">About</a>
+<div class="relative">
+<a class="nav-dashboard dropdown-trigger text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-[10px] font-bold uppercase tracking-wider transition-colors flex items-center gap-0.5 cursor-pointer" href="dashboard.html">Dashboard <span class="material-symbols-outlined text-[12px]">expand_more</span></a>
+<div class="nav-dropdown absolute top-full left-0 mt-1 w-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 opacity-0 invisible transition-all flex flex-col overflow-hidden z-[100]">
+<a href="dashboard.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">Admin</a>
+<a href="user-profile.html" class="px-3 py-2 text-[10px] text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-primary">User</a>
+</div>
+</div>
+</nav>
+<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-4 ml-2">
+<button id="dir-toggle-nav" class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary text-[10px] font-bold tracking-widest bg-white/50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors">LTR</button>
+<button id="theme-toggle-nav" class="flex items-center justify-center size-9 text-slate-600 dark:text-slate-400 hover:text-primary bg-white/50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
+</button>
+<a href="book-services.html" class="hidden nav-mobile:flex items-center justify-center rounded-lg h-7 px-3 bg-primary text-white text-[10px] font-black uppercase tracking-wider transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+    Book Services
+</a>
+<!-- Mobile Menu Trigger -->
+<button id="mobile-menu-trigger" class="nav-mobile:hidden flex items-center justify-center rounded-lg h-8 w-8 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 transition-colors active:scale-90">
+    <span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+</div>
+</div>
+</header>
+
+<!-- Mobile Drawer Overlay -->
+<div id="drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] opacity-0 invisible transition-all duration-300"></div>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="fixed top-0 right-0 h-full w-[280px] bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl text-slate-900 dark:text-white z-[101] translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200 dark:border-white/5 shadow-2xl flex flex-col overflow-hidden">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-6">
+        <div class="flex items-center gap-2">
+            <h2 class="text-slate-900 dark:text-white text-lg font-black leading-tight tracking-tighter uppercase italic relative">
+                Precision Detail
+                <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+            </h2>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-500 dark:text-slate-600 dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+        <nav class="flex flex-col gap-6">
+            <!-- Home Links -->
+            <div>
+                <div class="flex items-center justify-between text-slate-900 dark:text-white font-bold text-xl mb-4 group cursor-pointer border-b border-slate-200 dark:border-slate-900/40 dark:border-white/10 pb-2">
+                    Home
+                    <span class="material-symbols-outlined text-sm opacity-50">chevron_right</span>
+                </div>
+                <div class="flex flex-col gap-3 pl-4 border-l border-slate-200 dark:border-slate-900/40 dark:border-white/10 ml-1">
+                    <a href="index.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors flex items-center justify-between">
+                        Version 1
+                        <span class="text-[10px] bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded uppercase tracking-widest opacity-50">Default</span>
+                    </a>
+                    <a href="home2.html" class="text-slate-900 dark:text-slate-600 dark:text-white/70 hover:text-primary text-sm transition-colors">Version 2</a>
+                </div>
+            </div>
+
+            <a href="services.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Services
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="pricing.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Pricing
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="gallery.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Gallery
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="blog.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Blog
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+            <a href="contact.html" class="flex items-center justify-between text-slate-900 dark:text-white hover:text-[#22d3ee] font-bold text-xl transition-colors">
+                Contact
+                <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+            </a>
+
+            <!-- Dashboard/Profile -->
+            <div class="mt-4 pt-6 border-t border-slate-200 dark:border-white/5 space-y-4">
+                 <a href="dashboard.html" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+                <a href="user-profile.html" class="flex items-center justify-between text-slate-900 dark:text-white/90 hover:text-[#22d3ee] font-bold text-lg transition-colors">
+                    User Dashboard
+                    <span class="material-symbols-outlined text-sm opacity-30">chevron_right</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Footer Section -->
+    <div class="p-6 bg-slate-50 dark:bg-white/5 border-t border-slate-200 dark:border-slate-900/40 dark:border-white/10 space-y-6">
+        <!-- Book Service Action -->
+        <a href="book-services.html" class="flex items-center justify-center gap-2 w-full h-14 bg-[#ec5b13] text-white font-black uppercase tracking-widest text-sm rounded-2xl shadow-xl shadow-[#ec5b13]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <span class="material-symbols-outlined text-lg">auto_awesome</span>
+            Book Service
+        </a>
+
+        <!-- Social Icons -->
+        <div class="flex items-center justify-center gap-6 text-slate-400 dark:text-slate-600 dark:text-white/40 pt-2">
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">public</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">share</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">alternate_email</span>
+            <span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary dark:hover:text-white transition-colors">chat_bubble</span>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-[9px] text-center text-slate-500 dark:text-white/30 uppercase tracking-[0.2em]">
+            © 2026 Precision Detail Automotive Group
+        </p>
+    </div>
+</div><!-- End Mobile Drawer -->
+<main class="flex-1 px-6 py-12 lg:px-20 pt-[5%] flex flex-col items-center">
+<div class="w-full max-w-[1200px]">
+<nav class="flex flex-wrap items-center gap-2 mb-6">
+<a class="text-slate-400 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+<span class="text-slate-500 dark:text-slate-600 text-sm">/</span>
+<a class="text-slate-400 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="gallery.html">Gallery</a>
+<span class="text-slate-500 dark:text-slate-600 text-sm">/</span>
+<span class="text-slate-900 dark:text-white text-sm font-bold">Interiors</span>
+</nav>
+<!-- Hero Section -->
+<div class="flex flex-col gap-4 mb-12">
+<h1 class="text-slate-900 dark:text-slate-100 text-5xl font-black leading-tight tracking-[-0.033em]">Interior Restoration Gallery</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl">
+                            Witness the revival of luxury. Our specialized deep cleaning and restoration techniques bring worn leather, faded upholstery, and neglected dashboards back to factory showroom condition.
+                        </p>
+</div>
+<!-- Category Tabs -->
+<div class="border-b border-slate-200 dark:border-slate-800 mb-10 overflow-x-auto">
+<div class="flex gap-8 whitespace-nowrap">
+<button class="border-b-4 border-primary text-primary pb-4 font-bold text-sm tracking-wider uppercase">All Projects</button>
+<button class="border-b-4 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 pb-4 font-bold text-sm tracking-wider uppercase">Leather Restoration</button>
+<button class="border-b-4 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 pb-4 font-bold text-sm tracking-wider uppercase">Upholstery Steam Clean</button>
+<button class="border-b-4 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 pb-4 font-bold text-sm tracking-wider uppercase">Dashboard Detailing</button>
+</div>
+</div>
+<!-- Gallery Sections -->
+<div class="space-y-20">
+<!-- Leather Restoration Section -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h2 class="text-2xl font-bold tracking-tight">Leather Restoration: Before &amp; After</h2>
+<div class="h-[1px] flex-1 bg-slate-200 dark:bg-slate-800"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900">
+<div class="aspect-video bg-cover bg-center" data-alt="Close up of cracked old leather car seat before restoration" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCNmjWwtayUQ26J2yKHN_yOuxbSCFfmsYaUgvj3qo8j8LK6qjknrm7OGQYjzSbbIATIf1rsyWnmEhAQVPxFzHSFABiYqm9b0alOwl4hvZAcr6obOnMlT945SIhQ0g2ePcCSKDLcsOmbZyxiH2oeF0z92rGig4CvqDDoDorSBbC7YUiXGb_D3z20gtke0ze97UkIOBTRp3FJpyLARTMRnsLH65SLyU196Io5WrtpBU_ix7bCSYTzmjUAG0QFI-XwFaNRMD8EbOgk5Kg");'></div>
+<div class="absolute top-4 left-4 bg-slate-900/80 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Before</div>
+<div class="p-4 bg-white/5 backdrop-blur-sm absolute bottom-0 inset-x-0 border-t border-slate-900/40 dark:border-white/10">
+<p class="text-white font-semibold">Vintage BMW E30 Leather - Cracked &amp; Faded</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-primary/50">
+<div class="aspect-video bg-cover bg-center" data-alt="Close up of restored smooth leather car seat after professional treatment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACsmkoQTWYROAKb00mXQQQAPUT1sQ4i4XyUzXOICx0XxcdcSnrfSZeyeezLfXjYYf2dUGacF83PYBJ-qC3vOdVMbCc2ojP9gjxPfydgZpJmQmJfpXtkVavYQVNq6wYYBAymNUr44OZLovSUuXC3wp_P6dgZm4HJqN3_w80-ClffVnbAoUhLHywHy9sBCNjsY10WNMzV0KL4SdE4EfXS2ThJvjhrKMCIY0fhyRb_3mRbgVSAdpzhLKTuPK8Pw2aPLNE9aPzR6E9Moo");'></div>
+<div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">After</div>
+<div class="p-4 bg-primary/90 backdrop-blur-sm absolute bottom-0 inset-x-0">
+<p class="text-white font-semibold">Deep Cleaned &amp; Re-dyed - Like New Finish</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Upholstery Deep Clean Section -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h2 class="text-2xl font-bold tracking-tight">Upholstery &amp; Carpet Extraction</h2>
+<div class="h-[1px] flex-1 bg-slate-200 dark:bg-slate-800"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="flex flex-col gap-4">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+<img class="w-full h-full object-cover" data-alt="Mud stained car floor carpet before cleaning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbbiaQlIKAbSMICcsu_dM4gVyYGtH72QQu9Kf9ZwSTCt5mEro0CcCEMCBllyyxDL6oqe4iD3ahIxEJAJrawgMze6uIn6wiOu6Rm_HpyEnAh8wvCKBtx-D_K5jqRR6Kun2aSb9y8zgrmKBSqRoN0jSVO8kA9kHDEUG7NFDieYl7rmqwDYuX7gSxlE68zxpzKpngr_Bsro_CLDVNDkR0-jrGI-3it5bwh3Es0HImYKF2av7t44t0TuRLjdhMT_O4uzfTytiRP7_19kE"/>
+</div>
+<div>
+<span class="text-primary text-xs font-bold uppercase tracking-tighter">Case Study 01</span>
+<h3 class="font-bold text-lg">Coffee Stain Removal</h3>
+<p class="text-slate-500 text-sm">Industrial steam extraction and chemical treatment.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+<img class="w-full h-full object-cover" data-alt="High quality clean fabric car seat after steam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWdMlZu8_N6-3GBYEfSRHn6b9O1XfGRjAPO-nxc_ObgT28K2BLUYow-ICooqxoIoIKffFJbNFoCXeX3XQqIhoq3_md1lsHDydz61TQeKeCFRcXdBFRuMrJj962tjLYFiTyOjiJ3ZrozEN4WDSL79mxjLwvnSC55Oe1_1tRLJ2e7uOEhswkIY9dcqH1tggd91O8GysdM5t2hEDwup6oURC72WtUEjGJyrre3qSkw7KDYw4M9sKQ7K3Qwk-z_Zu1NNDA0qeHI_8a4TU"/>
+</div>
+<div>
+<span class="text-primary text-xs font-bold uppercase tracking-tighter">Case Study 02</span>
+<h3 class="font-bold text-lg">Fabric Odor Neutralization</h3>
+<p class="text-slate-500 text-sm">Ozone treatment and antimicrobial deep scrub.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="aspect-square rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+<img class="w-full h-full object-cover" data-alt="Close up of a professional cleaning car floor mats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk4ky3LbBWzev9MAC5DDorU5J_LnLYTJGliyT1pjZ8Lje9OTOnSFjxRc4Yt-oZxg5RoiWgJynfCzhpSXSmdL03g0j_600nkBVV3Uz3FMgimVYpArGqA67t_a8MAvEnnfWi6-zpxsNxJQIZcypb-DWuRVHW0JhlDMZG3fGKGRgD3RDqRs68E3sNA265dUx1HZqRkB79g03oYWvW395yW_Hso6DQNAfjtmgf5pbkAnscZCJ-4WwbrfE573kZWs6j4uVLpEgjMyhURVo"/>
+</div>
+<div>
+<span class="text-primary text-xs font-bold uppercase tracking-tighter">Case Study 03</span>
+<h3 class="font-bold text-lg">Pet Hair Removal</h3>
+<p class="text-slate-500 text-sm">Precision brushing and triple-pass vacuuming.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Dashboards Section -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h2 class="text-2xl font-bold tracking-tight">Dashboards &amp; Trim Restoration</h2>
+<div class="h-[1px] flex-1 bg-slate-200 dark:bg-slate-800"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 relative rounded-xl overflow-hidden aspect-[21/9]">
+<img class="w-full h-full object-cover" data-alt="Luxurious car dashboard after restoration and cleaning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyZjGpkmASacYjzosAgzlqirnMcgKOao97ej8hzzUOH7Ws8dNirZz2rG8VcNp9qR8fUqiw4c99qUx3dOozzMiJy_0zV2pCNdrr9T6qPRzv01PE4rc0S9X1KIKnICcpSdaoddrhckd4QbN-beqly8fBwGgqdqnrHhu8THH6S6JyIU3OiRy6xvkXg9HGvJZxmAy3o2hEJSlVUAqYT2TAfwSSdDR64mNRGfEXIP0dOYWUEhccTDSJWzJqbCtyauUa65kkKMnxx6IpMKk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex flex-col justify-end p-8">
+<h3 class="text-white text-2xl font-bold">Piano Black Trim Polishing</h3>
+<p class="text-slate-200">Removing swirls and scratches from delicate interior surfaces.</p>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl p-8 flex flex-col justify-center border border-primary/20">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">cleaning_services</span>
+<h4 class="text-xl font-bold mb-2">UV Protection</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Our dashboard restoration includes a matte-finish UV inhibitor that prevents cracking and fading for up to 6 months.</p>
+<a class="text-primary font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all underline" href="#">View Full Process <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</section>
+</div>
+<!-- CTA Section -->
+<div class="mt-24 bg-slate-900 rounded-2xl p-12 text-center relative overflow-hidden border border-slate-800">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px]"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 blur-[100px]"></div>
+<h2 class="text-3xl font-bold text-white mb-4 relative z-10">Ready to restore your vehicle's interior?</h2>
+<p class="text-slate-400 mb-8 max-w-xl mx-auto relative z-10">Our specialists are ready to transform your car's cabin back into a pristine, luxurious environment.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-lg shadow-primary/20">Get a Free Quote</button>
+<button class="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-bold backdrop-blur-sm transition-all border border-slate-900/40 dark:border-white/10">Contact Support</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="max-w-7xl mx-auto px-6 lg:px-20 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+                <div class="flex items-center gap-2 mb-6">
+                    <h4 class="text-slate-900 dark:text-white font-black text-xl tracking-tighter uppercase italic relative">
+                        Precision Detail
+                        <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+                    </h4>
+                </div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defining automotive excellence through meticulous craftsmanship and premium protection services.</p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Quick Links</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="services.html">Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="gallery.html">Gallery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">About</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Support</h4>
+<ul class="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Subscribe</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get the latest tips and offers.</p>
+<div class="flex gap-2">
+<input class="bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm px-4 h-10 w-full focus:ring-2 focus:ring-primary/50" placeholder="Email" type="email"/>
+<button class="bg-primary text-white px-4 rounded-lg h-10 hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+                    © 2025 Precision Detail. All rights reserved.
+                </div>
+</div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body></html>

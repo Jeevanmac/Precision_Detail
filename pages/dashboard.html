@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Apex Detail | Client Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex min-h-screen">
+    <!-- Sidebar Navigation -->
+    <aside class="w-60 bg-white dark:bg-surface-dark border-r border-slate-200 dark:border-accent-dark flex flex-col fixed h-full z-50 transition-all duration-300">
+        <div class="px-6 py-4">
+            <div class="flex items-center justify-between gap-3 mb-6">
+                <div class="relative group flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-1">
+                        <h2 class="text-slate-900 dark:text-slate-100 text-sm font-black leading-tight tracking-tighter hover:text-primary transition-colors uppercase italic relative">
+                            Precision Detail
+                            <span class="absolute -right-2 top-0 text-orange-500 text-[10px]">●</span>
+                        </h2>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar Toggles -->
+            <div class="flex items-center gap-2 mb-4 p-1 bg-slate-50 dark:bg-accent-dark/30 rounded-lg border border-slate-100 dark:border-accent-dark/50">
+                <button id="dir-toggle-nav" class="flex-1 h-9 flex items-center justify-center text-[10px] font-black tracking-widest bg-white dark:bg-slate-800 rounded-md shadow-sm border border-slate-200 dark:border-accent-dark transition-all active:scale-95">LTR</button>
+                <button id="theme-toggle-nav" class="flex-1 h-9 flex items-center justify-center text-slate-500 hover:text-primary bg-white/50 dark:bg-slate-800/50 rounded-md border border-slate-200 dark:border-accent-dark transition-all active:scale-95">
+                    <span class="material-symbols-outlined text-[18px] dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined text-[18px] hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </div>
+        <nav class="flex-1 px-3 space-y-1 mt-2" id="sidebar-nav">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary text-white font-bold text-sm transition-all shadow-md shadow-primary/20" href="javascript:void(0)" onclick="switchSection('overview')" id="nav-overview">
+                <span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium" href="javascript:void(0)" onclick="switchSection('vehicles')" id="nav-vehicles">
+                <span class="material-symbols-outlined text-[20px]" data-icon="directions_car">directions_car</span>
+                <span>My Vehicles</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium" href="javascript:void(0)" onclick="switchSection('appointments')" id="nav-appointments">
+                <span class="material-symbols-outlined text-[20px]" data-icon="calendar_month">calendar_month</span>
+                <span>Appointments</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium" href="javascript:void(0)" onclick="switchSection('history')" id="nav-history">
+                <span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+                <span>Service History</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-accent-dark transition-all text-sm font-medium" href="javascript:void(0)" onclick="switchSection('invoices')" id="nav-invoices">
+                <span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+                <span>Invoices</span>
+            </a>
+        </nav>
+        <!-- Bottom User Profile -->
+        <div class="p-4 mt-auto border-t border-slate-200 dark:border-accent-dark">
+            <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-accent-dark transition-all cursor-pointer group" onclick="switchSection('profile')" id="nav-profile-bottom">
+                <div class="size-11 rounded-full border-2 border-primary/30 p-0.5 group-hover:scale-105 transition-transform shrink-0">
+                    <div class="h-full w-full rounded-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcz4QFyoBE-Elx3nDGSSkpo5qisjI1i-now-Ar-jGBoEn8fTNStz8YIsDfHKGrlidd5BjEwBYQur8ONXukzlJJJeJ43ACX4R0XgBe_VwSeOchK-cQsLAAp8srujcrYg6GfoTqqFcljJOjWD0MEnR7fU4EJBMuJDta1GjFbwHt7gMrFc_wqgoaKpS4noFC9ryL1TSwdsWpNdpKAVpIr7ehv1sQbzT_JIENvh3Mees5PuKTZymoGsb-QJLGq1OlA8hLA92-8aQTeTK4')"></div>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold truncate text-slate-900 dark:text-slate-100">Alex Johnson</p>
+                    <p class="text-[10px] font-bold text-primary uppercase tracking-tighter truncate">Premium Member</p>
+                </div>
+                <button class="size-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-primary hover:bg-primary/10 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">settings</span>
+                </button>
+            </div>
+            <a href="index.html" class="mt-4 w-full flex items-center justify-center gap-2 py-2 text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg transition-colors">
+                <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-60 p-8 min-h-screen transition-all duration-300" id="dashboard-content">
+        <!-- Content loaded via JavaScript -->
+    </main>
+</div>
+
+<!-- Section Templates -->
+    <script type="text/template" id="tmpl-overview">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div>
+                    <a href="index.html" class="inline-flex items-center gap-1 text-slate-400 hover:text-primary transition-colors mb-4 text-[10px] font-black uppercase tracking-[0.2em] group">
+                        <span class="material-symbols-outlined text-sm group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+                        back
+                    </a>
+                    <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Dashboard Overview</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                        Welcome back Alex Johnson <span class="size-1 rounded-full bg-slate-300"></span> Platinum Member <span class="size-1 rounded-full bg-slate-300"></span> Los Angeles, CA
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button class="px-5 py-2.5 rounded-xl font-bold text-sm border border-slate-200 dark:border-accent-dark bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-primary transition-all flex items-center gap-2 shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">headset_mic</span>
+                        Support
+                    </button>
+                    <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 shadow-lg shadow-primary/20" onclick="switchSection('appointments')">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                        Book Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Total Spend (YTD)</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">$12,840.00</span>
+                        <span class="text-xs text-emerald-500 font-bold flex items-center gap-1 mt-1">
+                            <span class="material-symbols-outlined text-xs">trending_up</span> +12% from 2024
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Fleet Health</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">98/100</span>
+                        <span class="text-xs text-slate-400 font-medium mt-1">All maintenance up to date</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                            <span class="material-symbols-outlined">stars</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Reward Points</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">12,500</span>
+                        <span class="text-xs text-primary font-bold mt-1">Platinum Tier Access</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="size-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500">
+                            <span class="material-symbols-outlined">history</span>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">Member Since</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-slate-900 dark:text-white">Nov 2021</span>
+                        <span class="text-xs text-slate-400 font-medium mt-1">3.2 Year Loyalty</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Most Popular Services -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Most Popular Services</h3>
+                        <a href="#" class="text-primary text-sm font-bold hover:underline">View All Packages</a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary/50 transition-all">
+                            <div class="h-32 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyD46mS4W3K7mB_SloX1vO0R1DMBXf_9uWvU3Y5Hj6xL6B4M8S_jR1D5L3vA')"></div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-sm mb-1">Gold Detail</h4>
+                                <p class="text-xs text-slate-500 mb-3">Full exterior & interior restore</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-black text-primary">$250</span>
+                                    <button class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-[10px] font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Quick Book</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary/50 transition-all">
+                            <div class="h-32 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_vC7L_X3M5N_D6R_L8V4Y_B3P5L_S8V4T_Y3X5C_L_vC7M_S8V4B6')"></div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-sm mb-1">Ceramic Ultra</h4>
+                                <p class="text-xs text-slate-500 mb-3">5-year liquid glass protection</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-black text-primary">From $850</span>
+                                    <button class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-[10px] font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Quick Book</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary/50 transition-all">
+                            <div class="h-32 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_W49z6N8F3R5L_P4M8S_jR1D5L3vA_W49z6N8F3R5L')"></div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-sm mb-1">Interior Revival</h4>
+                                <p class="text-xs text-slate-500 mb-3">Deep deep restoration</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-black text-primary">$150</span>
+                                    <button class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-[10px] font-bold rounded-lg hover:bg-primary hover:text-white transition-all">Quick Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                            <div class="size-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-bold truncate">Porsche 911 Detail</p>
+                                <p class="text-xs text-slate-500">Completed 2 days ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                            <div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-bold truncate">Invoice Paid #INV-2025</p>
+                                <p class="text-xs text-slate-500">Processed yesterday</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm opacity-60">
+                            <div class="size-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+                                <span class="material-symbols-outlined text-[20px]">schedule</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-bold truncate">Lamborghini Service Due</p>
+                                <p class="text-xs text-slate-500">Coming up in 5 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-vehicles">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div>
+                    <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">My Vehicles</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Manage and track the condition of your premium collection.</p>
+                </div>
+                <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined text-sm">add</span>
+                    Add New Vehicle
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Vehicle Card 1 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-primary/50 transition-all">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-UWKAZY8nNbEXbdK0Miol0SHnnUVN3f09EFM-fDtIV3Zo9wEoBEc3GNPa2-3X9U0S9k0Akic_PVdHxZlXb_qQyM5cHhElioGc7cr2KxWzalFS7yqYoXFOE-d7YWq88nTdvCQT_7UWUewX-NpYBxix0g8h3PXbc7drSef0TA0yROtyzi3JzS3s0soUK6mzUxemKPZgaODUy9IJJLIZ1DeI4YhCiaBnZTOuFENHli_pYBAakB052EBjAA-XkOFdK9vLyssQTBn8fHI" alt="Porsche 911 GT3"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Coating Active</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">2023 Porsche 911 GT3</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">GT3-FAST • Chalk Grey</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">directions_car</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Last Service</span>
+                                <span class="font-bold">May 12, 2025</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Next Recommended</span>
+                                <span class="font-bold">Jan 2024</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2.5 bg-primary text-white text-xs font-bold rounded-xl hover:bg-primary/90 transition-all">View Details</button>
+                            <button class="flex-1 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-xl hover:bg-slate-200 dark:hover:bg-accent-dark transition-all">Service History</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-accent-dark group hover:border-amber-500/50 transition-all">
+                    <div class="h-56 relative overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaGua8JZAxpWkGjfMe6CQRn6_6fZMrwToB-wtuAznAFCu_zjwHDfkyb5ez-WyIAynK2BbQT3kmASJfcY3A2NjfMT19foooMgsnxGMFKVBAhHAmZqYjpTjmmbaE07dcA2Qd0_DtgYtjeVYvMFdOhhf38BO9FWk7jTdFiAb7y9TCu6sus6bPf3ef-B4ZyRFWFZJaAFo0chwTybyvkphvE68s1nhyhYE7jy_fySQPYo6Jkl_mSqgvDdzRYOlU-iEtP4MM4trqb_kJ1rM" alt="Lamborghini Huracán"/>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-amber-500 text-white text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest">Maintenance Due</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 dark:text-white">2021 Lamborghini Huracán</h4>
+                                <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-tighter">BM-1224 • Arancio Borealis</p>
+                            </div>
+                            <span class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-400">
+                                <span class="material-symbols-outlined text-[20px]">directions_car</span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Last Service</span>
+                                <span class="font-bold">Jun 02, 2023</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 text-amber-500 font-bold">Recommended Service</span>
+                                <span class="font-bold text-amber-500 italic">Expired 2 weeks ago</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="flex-1 py-2.5 bg-amber-500 text-white text-xs font-bold rounded-xl hover:bg-amber-600 transition-all">Book Service Now</button>
+                            <button class="flex-1 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-xl hover:bg-slate-200 dark:hover:bg-accent-dark transition-all">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-appointments">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Service Appointments</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Manage your luxury fleet maintenance and detailing schedule.</p>
+                </div>
+                <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+                    <button class="px-6 py-2 text-xs font-bold bg-white dark:bg-slate-700 shadow-sm rounded-lg text-primary">Upcoming</button>
+                    <button class="px-6 py-2 text-xs font-bold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">Calendar View</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Upcoming Services List -->
+                <div class="lg:col-span-2 space-y-6">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">event_upcoming</span>
+                        Scheduled Detailings
+                    </h3>
+                    
+                    <!-- Appointment Card 1 -->
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark rounded-2xl overflow-hidden group hover:border-primary/50 transition-all">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-48 h-48 md:h-auto bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0_c78x_8Z-A2vbRe74GNK8_lFb36B9UoHrK-CIYmuZnxoIxq9z4RzI-b_WJhXbSbTmTkmdjFMRKVhdQAhz-WhecsEuevf-U3Kk57FNtJsqpfAt4NyPOOLByCcvPpo-BOgE7tJQmvpe7lA9d7gbAe9tA3zofh-SHI7xC0eGBmj_GRpb3DM_oQPcdGm0hk1NkoIWN9ETBwRA_PD9dMBuLoZdJfNI4DYjmJw1NDckngrSotg-T6azn3JsTfJUCITO6-kwArsnQtDT80')"></div>
+                            <div class="flex-1 p-6 flex flex-col justify-between">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Lamborghini Huracán EVO</h4>
+                                        <p class="text-primary font-bold text-xs mt-1">Full Ceramic Coating & Interior Detail</p>
+                                    </div>
+                                    <span class="bg-emerald-500/10 text-emerald-500 text-[10px] uppercase font-black px-2 py-1 rounded-full border border-emerald-500/20 tracking-widest">Confirmed</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mt-6">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-9 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-500">
+                                            <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-500 uppercase font-black tracking-tighter">Date</p>
+                                            <p class="text-xs font-bold">Jun 27, 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-9 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-500">
+                                            <span class="material-symbols-outlined text-[20px]">schedule</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-500 uppercase font-black tracking-tighter">Time Slot</p>
+                                            <p class="text-xs font-bold">09:00 AM - 02:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-6 pt-4 border-t border-slate-100 dark:border-accent-dark">
+                                    <div class="flex items-center gap-2">
+                                        <div class="size-7 rounded-full border-2 border-primary overflow-hidden">
+                                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEu3xxAA7BnkahmTz8C6mshB0qO4AV6dTXRebqJZRI3ux5ts368PTXHS_ttWyh-Rg_YPnDMvKeoXTDsAGKWBx0xdFdurU9lIS6lMKFFLNJmohxpUvuK6XlW-4vWuWCPBhEipGYk3nbgpdnN0Nk-J5Az7uHm4u9vOw41smkdAhWj6Nybns4nE-1Y-gUuxNWAAETCOg5qlJ368udM6MCtk1I7sQ-nqE14uRdVO7PCec-iYvf5qzalCk_5PpzSBpjOXJpVx0TEwDgj0s" alt="Detailer"/>
+                                        </div>
+                                        <span class="text-[11px] text-slate-500 italic">Lead Detailer: Marcus Pierre</span>
+                                    </div>
+                                    <button class="text-slate-400 hover:text-primary transition-colors">
+                                        <span class="material-symbols-outlined">more_horiz</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Availability Widget -->
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">calendar_month</span>
+                        Availability
+                    </h3>
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <button class="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                            <h4 class="font-bold text-sm">June 2025</h4>
+                            <button class="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-center mb-2">
+                             <span class="text-[10px] font-black text-slate-400">S</span>
+                             <span class="text-[10px] font-black text-slate-400">M</span>
+                             <span class="text-[10px] font-black text-slate-400">T</span>
+                             <span class="text-[10px] font-black text-slate-400">W</span>
+                             <span class="text-[10px] font-black text-slate-400">T</span>
+                             <span class="text-[10px] font-black text-slate-400">F</span>
+                             <span class="text-[10px] font-black text-slate-400">S</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1">
+                            <!-- Calendar for June 2025 (Week of 27th) -->
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">22</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">23</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">24</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">25</div>
+                            <div class="h-8 flex items-center justify-center text-xs text-slate-300">26</div>
+                            <div class="h-8 flex items-center justify-center text-xs font-black bg-primary text-white rounded-lg shadow-lg relative z-10 scale-110">27</div>
+                            <div class="h-8 flex items-center justify-center text-xs font-bold">28</div>
+                        </div>
+                        <div class="mt-8 bg-primary/5 border border-primary/20 rounded-xl p-4">
+                            <h4 class="font-bold text-xs mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">verified</span> Elite Guarantee</h4>
+                            <p class="text-[10px] text-slate-500 leading-tight">Priority slots are available for Platinum members with same-day confirmation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-history">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div>
+                    <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Service History</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Detailed maintenance logs and maintenance scheduling for your premium fleet.</p>
+                </div>
+                <div class="flex gap-3">
+                    <button class="flex items-center gap-2 px-5 py-2.5 border border-slate-200 dark:border-accent-dark bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl hover:bg-slate-50 transition-all">
+                        <span class="material-symbols-outlined text-lg">download</span>
+                        Export Report
+                    </button>
+                    <button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-bold rounded-xl transition-all hover:bg-primary/90 shadow-lg shadow-primary/20" onclick="switchSection('appointments')">
+                        <span class="material-symbols-outlined text-lg">add</span>
+                        Book Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Filters -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-accent-dark p-2 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex gap-2 p-1 overflow-x-auto no-scrollbar w-full md:w-auto">
+                    <button class="px-4 py-2 text-xs font-bold leading-none bg-primary text-white rounded-xl">All Records</button>
+                    <button class="px-4 py-2 text-xs font-bold leading-none text-slate-500 hover:text-primary transition-all">Scheduled</button>
+                    <button class="px-4 py-2 text-xs font-bold leading-none text-slate-500 hover:text-primary transition-all">Completed</button>
+                </div>
+                <div class="flex items-center gap-3 w-full md:w-auto px-4">
+                    <div class="relative flex-1 md:w-64">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                        <input type="text" placeholder="Search service ID or VIN" class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-xs focus:ring-1 focus:ring-primary"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Data Table -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-accent-dark overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-slate-50 dark:bg-accent-dark/50 border-b border-slate-200 dark:border-accent-dark">
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Date & ID</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Vehicle</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Description</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Status</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest text-right">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-accent-dark">
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Jun 12, 2025</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">SRV-88219</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyFDsmakuVZMuXTzDFeBearTWwTWJ7D7TvYCmauSFGEcuNqRtUUuR_c2ZUiu8GYqYRJTFzKrsAqVFx6cUCdEAt8ps0CiApbGopF38SOBZAGctaHkROFiBHnMYPm5OHpxIzU5-Cw4h_U8Zn9FaX-JY4cM7kBWNLBpAn3_rscM0gr0NQrgtAq3ZMNDTXgPq2h47cjBzlVnsdv9h8zdn82lNbsNSY4mHbTvLwLt9XGP7DCK4ZvYDkDXhZj2zpbziZNkfsVj4sT0rJrvA')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Porsche 911 GT3</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-primary/10 text-primary uppercase tracking-tighter">Performance Check</span>
+                                    <span class="text-[10px] text-slate-500 ml-2 italic">+ Oil Flush</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$1,240.00</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-5">
+                                    <div class="flex flex-col">
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Aug 15, 2023</span>
+                                        <span class="text-[10px] text-slate-400 font-bold uppercase">SRV-85210</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded bg-slate-100 dark:bg-slate-800 bg-cover bg-center border border-slate-200 dark:border-accent-dark" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaGua8JZAxpWkGjfMe6CQRn6_6fZMrwToB-wtuAznAFCu_zjwHDfkyb5ez-WyIAynK2BbQT3kmASJfcY3A2NjfMT19foooMgsnxGMFKVBAhHAmZqYjpTjmmbaE07dcA2Qd0_DtgYtjeVYvMFdOhhf38BO9FWk7jTdFiAb7y9TCu6sus6bPf3ef-B4ZyRFWFZJaAFo0chwTybyvkphvE68s1nhyhYE7jy_fySQPYo6Jkl_mSqgvDdzRYOlU-iEtP4MM4trqb_kJ1rM')"></div>
+                                        <span class="text-sm font-bold text-slate-900 dark:text-white">Lamborghini Huracán</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-[10px] font-black bg-purple-500/10 text-purple-500 uppercase tracking-tighter">Brake Service</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <span class="size-2 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs font-bold text-emerald-600">Completed</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5 text-right font-black text-sm">$820.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination -->
+                <div class="px-6 py-4 bg-slate-50 dark:bg-accent-dark/30 border-t border-slate-100 dark:border-accent-dark flex justify-between items-center">
+                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Showing 2 of 14 records</span>
+                    <div class="flex gap-2">
+                        <button class="px-3 py-1 rounded-lg border border-slate-200 dark:border-accent-dark text-xs font-bold disabled:opacity-50">Prev</button>
+                        <button class="px-3 py-1 rounded-lg bg-primary text-white text-xs font-bold">1</button>
+                        <button class="px-3 py-1 rounded-lg border border-slate-200 dark:border-accent-dark text-xs font-bold">2</button>
+                        <button class="px-3 py-1 rounded-lg border border-slate-200 dark:border-accent-dark text-xs font-bold">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-invoices">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div>
+                    <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Financial Records</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Manage and track your luxury service billings.</p>
+                </div>
+                <div class="flex gap-3">
+                     <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 shadow-lg shadow-primary/20">
+                        <span class="material-symbols-outlined text-sm">payments</span>
+                        Pay Bills
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-slate-500 text-xs font-black uppercase tracking-widest">Total Paid (YTD)</p>
+                        <span class="p-2 bg-emerald-500/10 text-emerald-500 rounded-lg"><span class="material-symbols-outlined text-lg">check_circle</span></span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white">$128,400.00</h3>
+                        <span class="text-emerald-500 text-[10px] font-black">+12.5%</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-slate-500 text-xs font-black uppercase tracking-widest">Pending Payment</p>
+                        <span class="p-2 bg-amber-500/10 text-amber-500 rounded-lg"><span class="material-symbols-outlined text-lg">schedule</span></span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white">$12,250.00</h3>
+                        <span class="text-amber-500 text-[10px] font-black">+5.2%</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-slate-500 text-xs font-black uppercase tracking-widest">Avg. Service Cost</p>
+                        <span class="p-2 bg-indigo-500/10 text-indigo-500 rounded-lg"><span class="material-symbols-outlined text-lg">bar_chart</span></span>
+                    </div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white">$4,200.00</h3>
+                        <span class="text-rose-500 text-[10px] font-black">-2.1%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoices Table -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="bg-slate-50 dark:bg-accent-dark/50 border-b border-slate-200 dark:border-accent-dark">
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Invoice ID</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Service Item</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Date</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest">Status</th>
+                                <th class="px-6 py-4 text-[10px] font-black text-slate-500 uppercase tracking-widest text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-accent-dark text-sm">
+                            <tr class="hover:bg-slate-50/50 dark:hover:bg-accent-dark/20 transition-colors">
+                                <td class="px-6 py-4 font-bold">#INV-9402</td>
+                                <td class="px-6 py-4">
+                                    <p class="font-bold">Full Paint Correction</p>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Porsche 911 GT3</p>
+                                </td>
+                                <td class="px-6 py-4 font-bold">Oct 24, 2023</td>
+                                <td class="px-6 py-4">
+                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 uppercase tracking-widest">Paid</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="p-2 bg-primary/10 text-primary rounded-lg hover:bg-primary transition-all hover:text-white transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">download</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="tmpl-profile">
+        <div class="space-y-8 animate-in fade-in duration-500">
+            <!-- Header Card -->
+            <div class="bg-slate-900 rounded-[32px] p-8 md:p-12 border border-white/5 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none"></div>
+                <div class="relative flex flex-col md:flex-row items-center md:items-end gap-8">
+                    <div class="relative">
+                        <div class="size-32 md:size-40 rounded-[32px] overflow-hidden border-4 border-slate-800 shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA53uLGPY85c8VVOWsaSNeYREAjoNZ1W_q9ga2TSRwchBKYonvT1-oP8lJYIo77qky1XwR8d1QhOoynJ-69zoCjn1URxShFYqqPR6eOP548txEVnNOgv7qOcGQUFXzoL4mpLgpOwOVR9Rzzk5PAQgbIuSWqmgfsQaAK-wW5_NmoPQtQuE5nwHrvG3w26GNV3e4tRZO_ctqPor_YNYNoTujwexC6QLa6k8RyexMRHWbgZIOZNOVslHCyXhQ2hmvmEvHVMjX9w-OSuiY" alt="Alex Johnson"/>
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 bg-primary text-white text-[10px] font-black px-2 py-1 rounded-lg uppercase tracking-widest shadow-lg">Verified</div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h2 class="text-4xl font-black text-white mb-2">Alex Johnson</h2>
+                        <div class="flex flex-wrap justify-center md:justify-start items-center gap-3">
+                            <span class="px-3 py-1 bg-primary text-white text-[10px] font-black rounded-full border border-primary/30 flex items-center gap-1 uppercase tracking-widest">
+                                <span class="material-symbols-outlined text-[14px]">stars</span> Platinum Member
+                            </span>
+                            <span class="text-slate-400 text-xs font-bold uppercase tracking-tighter">Loyal since Nov 2021</span>
+                        </div>
+                    </div>
+                    <button class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-2xl font-black text-sm transition-all flex items-center gap-2 shadow-xl shadow-primary/20">
+                        <span class="material-symbols-outlined text-lg">edit</span> Edit Profile
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined">car_repair</span>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white">48</p>
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Services Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+                            <span class="material-symbols-outlined">calendar_today</span>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white">3.2</p>
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Years of Loyalty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-accent-dark shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="size-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+                            <span class="material-symbols-outlined">monetization_on</span>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white">12.5k</p>
+                            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">Reward Points</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Personal Info -->
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-accent-dark">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">person</span> Personal Information
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Full Name</label>
+                            <input type="text" value="Alex Johnson" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-accent-dark rounded-xl px-4 py-3 text-sm font-bold outline-none ring-primary/20 focus:ring-2 transition-all"/>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Email Address</label>
+                            <input type="email" value="alex.j@luxury.com" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-accent-dark rounded-xl px-4 py-3 text-sm font-bold outline-none ring-primary/20 focus:ring-2 transition-all"/>
+                        </div>
+                        <div class="space-y-2 md:col-span-2">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500">Street Address</label>
+                            <input type="text" value="742 Evergreen Terrace, Los Angeles, CA" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-accent-dark rounded-xl px-4 py-3 text-sm font-bold outline-none ring-primary/20 focus:ring-2 transition-all"/>
+                        </div>
+                    </div>
+                    <button class="mt-8 w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-black rounded-2xl text-sm transition-all hover:scale-[1.02] active:scale-[0.98]">Save Changes</button>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-accent-dark">
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-purple-500">settings</span> Account Settings
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-sm">Email Notifications</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-black tracking-tighter">Booking confirmations</p>
+                                </div>
+                                <div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer"><div class="absolute right-1 top-1 size-3 bg-white rounded-full"></div></div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-sm">SMS Updates</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-black tracking-tighter">Service start alerts</p>
+                                </div>
+                                <div class="w-10 h-5 bg-slate-200 dark:bg-slate-700 rounded-full relative cursor-pointer"><div class="absolute left-1 top-1 size-3 bg-white rounded-full"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+<script>
+    function switchSection(sectionId) {
+        const contentArea = document.getElementById('dashboard-content');
+        const template = document.getElementById('tmpl-' + sectionId);
+        if (template) {
+            // Reset all regular nav links
+            document.querySelectorAll('#sidebar-nav a').forEach(link => {
+                link.classList.remove('bg-primary', 'text-white', 'font-medium');
+                link.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-accent-dark');
+            });
+            
+            // Reset bottom profile section
+            const profileBottom = document.getElementById('nav-profile-bottom');
+            if (profileBottom) {
+                profileBottom.classList.remove('bg-primary/10', 'border-primary/20');
+                profileBottom.classList.add('hover:bg-slate-100', 'dark:hover:bg-accent-dark');
+            }
+
+            const activeLink = document.getElementById('nav-' + sectionId);
+            const activeProfileBottom = (sectionId === 'profile') ? profileBottom : null;
+
+            if (activeLink) {
+                activeLink.classList.remove('text-slate-600', 'dark:text-slate-400', 'hover:bg-slate-100', 'dark:hover:bg-accent-dark');
+                activeLink.classList.add('bg-primary', 'text-white', 'font-medium');
+            }
+
+            if (activeProfileBottom) {
+                activeProfileBottom.classList.remove('hover:bg-slate-100', 'dark:hover:bg-accent-dark');
+                activeProfileBottom.classList.add('bg-primary/10', 'border', 'border-primary/20');
+            }
+
+            contentArea.innerHTML = template.innerHTML;
+            window.location.hash = sectionId;
+            window.scrollTo(0, 0);
+        }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash.replace('#', '');
+        switchSection(hash && document.getElementById('tmpl-' + hash) ? hash : 'overview');
+    });
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && document.getElementById('tmpl-' + hash)) switchSection(hash);
+    });
+</script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

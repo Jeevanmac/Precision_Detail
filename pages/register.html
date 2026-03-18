@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Register | Precision Detail</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../assets/js/tailwind-config.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<style>
+body {
+  font-family: 'Public Sans', sans-serif;
+}
+</style>
+</head>
+
+<body class="bg-gray-100 dark:bg-[#030712] transition-all duration-500 min-h-screen flex items-start justify-center pt-28 pb-10 px-4">
+
+<!-- TOP BAR -->
+<div class="fixed top-5 left-1/2 -translate-x-1/2 flex items-center gap-4 z-50">
+
+  <!-- BACK -->
+  <button onclick="window.location.href='login.html'"
+    class="flex items-center gap-2 px-4 py-2 rounded-full
+    bg-white/70 dark:bg-slate-800/70 backdrop-blur-md
+    border border-gray-200 dark:border-white/10
+    text-gray-800 dark:text-white text-sm font-semibold
+    hover:scale-105 transition">
+
+    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+    Back
+  </button>
+
+  <!-- THEME -->
+  <button id="theme-toggle-auth"
+    class="p-2 rounded-full
+    bg-white/70 dark:bg-slate-800/70 backdrop-blur-md
+    border border-gray-200 dark:border-white/10
+    text-gray-800 dark:text-white
+    hover:scale-105 transition">
+
+    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+    <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+  </button>
+
+</div>
+
+<!-- CARD -->
+<div class="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden
+bg-white dark:bg-slate-900/60 backdrop-blur-xl
+border border-gray-200 dark:border-white/10 shadow-2xl">
+
+  <!-- IMAGE SIDE -->
+  <div class="relative hidden lg:block overflow-hidden group">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtJpTxA7mecT3ZQ_q7dYBihLQPSMXR4m2AfEK8XK2kLVAvcVDXoiKqdZCGMRHGLtTJbaowsYkbu4bv3mxalwJq5Vgnsw2CLonSgSOnTkaEsi9sEj6_3aQLuaw_KHv_MODhobfEVm7To1MKY7ZKAalRYQwPHJku92XXxjMA0QtoGL1XutFjYQfnkD3BI7bR2MrUu9qe2lY_jK5VJBcZe4Tc5XQDYieWBkcvZSwXDaA3YYB9U0OniXJZ-R4BkF2SpEK3kXEKLGD-25A"
+    class="absolute inset-0 w-full h-full object-cover"/>
+
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+    <div class="relative z-10 p-6 h-full flex flex-col justify-end">
+      <span class="text-orange-500 text-xs font-bold uppercase tracking-widest">Excellence Guaranteed</span>
+      <h2 class="text-white text-2xl font-bold mt-2">Refining the Art of the Automobile</h2>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="p-6 flex flex-col justify-center">
+
+    <h1 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Create Account</h1>
+    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Join the premium detailing experience</p>
+
+    <form class="space-y-4">
+
+      <!-- NAME -->
+      <div>
+        <label class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Full Name</label>
+        <div class="relative mt-1">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">person</span>
+          <input type="text"
+            class="w-full pl-10 pr-3 py-2 rounded-lg
+            bg-gray-100 dark:bg-slate-800/50
+            border border-gray-200 dark:border-white/10
+            text-sm text-gray-900 dark:text-white
+            focus:ring-2 focus:ring-orange-500 outline-none"
+            placeholder="John Doe"/>
+        </div>
+      </div>
+
+      <!-- EMAIL -->
+      <div>
+        <label class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Email</label>
+        <div class="relative mt-1">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">alternate_email</span>
+          <input type="email"
+            class="w-full pl-10 pr-3 py-2 rounded-lg
+            bg-gray-100 dark:bg-slate-800/50
+            border border-gray-200 dark:border-white/10
+            text-sm text-gray-900 dark:text-white
+            focus:ring-2 focus:ring-orange-500 outline-none"
+            placeholder="client@precision.com"/>
+        </div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="grid grid-cols-2 gap-3">
+
+        <div>
+          <label class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Password</label>
+          <input type="password"
+            class="w-full mt-1 py-2 px-3 rounded-lg
+            bg-gray-100 dark:bg-slate-800/50
+            border border-gray-200 dark:border-white/10
+            text-sm text-gray-900 dark:text-white
+            focus:ring-2 focus:ring-orange-500 outline-none"
+            placeholder="••••••••"/>
+        </div>
+
+        <div>
+          <label class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">Confirm</label>
+          <input type="password"
+            class="w-full mt-1 py-2 px-3 rounded-lg
+            bg-gray-100 dark:bg-slate-800/50
+            border border-gray-200 dark:border-white/10
+            text-sm text-gray-900 dark:text-white
+            focus:ring-2 focus:ring-orange-500 outline-none"
+            placeholder="••••••••"/>
+        </div>
+
+      </div>
+
+      <!-- TERMS -->
+      <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+        <input type="checkbox"/>
+        Accept Terms & Privacy
+      </div>
+
+      <!-- BUTTON -->
+      <button type="submit"
+        class="w-full py-2 rounded-lg bg-orange-600 text-white font-bold text-sm
+        hover:brightness-110 transition active:scale-95">
+        Create Account
+      </button>
+
+      <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
+        Already have an account?
+        <a href="login.html" class="text-orange-500 font-bold hover:underline">Login</a>
+      </p>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+/* ============================================
+   RTL (Right-To-Left) Layout Fixes
+   Applied when html[dir="rtl"] is set
+   ============================================ */
+
+/* --- Dashboard Sidebar & Main Content --- */
+
+/* Move sidebar from left to right */
+[dir="rtl"] aside.fixed {
+    left: auto;
+    right: 0;
+}
+
+/* Flip main content margin: ml-60 -> mr-60 */
+[dir="rtl"] main#dashboard-content {
+    margin-left: 0 !important;
+    margin-right: 15rem; /* 60 * 0.25rem = 15rem */
+}
+
+/* Flip border on sidebar */
+[dir="rtl"] aside.w-60 {
+    border-right: none;
+    border-left: 1px solid;
+    border-color: inherit;
+}
+
+/* --- Header Nav Dropdown alignment in RTL --- */
+[dir="rtl"] .nav-dropdown {
+    left: auto;
+    right: 0;
+}
+
+/* --- Mobile Drawer: open from left in RTL --- */
+[dir="rtl"] #mobile-drawer {
+    right: auto;
+    left: 0;
+    border-left: none;
+    border-right: 1px solid;
+    transform: translateX(-100%);
+}
+
+[dir="rtl"] #mobile-drawer.translate-x-0 {
+    transform: translateX(0);
+}
+
+[dir="rtl"] #mobile-drawer.translate-x-full {
+    transform: translateX(-100%);
+}
+
+/* --- General text alignment --- */
+[dir="rtl"] .text-right {
+    text-align: left;
+}
+
+[dir="rtl"] .text-left {
+    text-align: right;
+}
+
+/* --- Fix absolute positioned bullet dot badge (brand logo dot) --- */
+[dir="rtl"] .absolute.-right-2 {
+    right: auto;
+    left: -0.5rem;
+}
+
+/* --- Floating coming-soon button position --- */
+[dir="rtl"] .fixed.bottom-6.right-6 {
+    right: auto;
+    left: 1.5rem;
+}
