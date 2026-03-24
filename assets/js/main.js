@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     if (navbar) {
         const onScroll = () => {
-            if (window.scrollY > 40) {
+            const isAlwaysScrolled = navbar.classList.contains('always-scrolled') || 
+                (navbar.classList.contains('always-scrolled-light') && !document.documentElement.classList.contains('dark'));
+            
+            if (isAlwaysScrolled || window.scrollY > 40) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
@@ -54,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('theme', 'dark');
             }
             updateThemeIcons();
+            window.dispatchEvent(new Event('scroll'));
         });
     });
 
