@@ -468,7 +468,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 /* Prevent stretching mismatch */
@@ -480,45 +479,59 @@
 </style>
 
 
-<!-- BEFORE AFTER SLIDER -->
-<section class="py-20 md:py-28 bg-gradient-to-b from-white to-slate-100 dark:from-[#0a0a0a] dark:to-black">
+<!-- PERFECT MATCH SLIDER -->
+<section class="py-20 bg-white">
 
-  <div class="max-w-6xl mx-auto px-4 md:px-6">
+  <div class="max-w-6xl mx-auto px-4">
 
-    <h2 class="serif-heading text-4xl md:text-6xl text-center text-slate-900 dark:text-white mb-14">
+    <h2 class="text-4xl md:text-6xl text-center mb-12 font-serif">
       Transformation Reveal
     </h2>
 
-    <div id="sliderContainer" 
-         class="relative w-full h-[280px] sm:h-[380px] md:h-[500px] overflow-hidden rounded-3xl shadow-2xl border border-white/10">
+    <div id="sliderContainer"
+         class="relative w-full h-[420px] md:h-[520px] overflow-hidden rounded-2xl">
 
-        <!-- BEFORE -->
-        <img src="/Precision_Detail/assets/images/damaged_car.png"
-             class="absolute inset-0 w-full h-full object-cover">
-        
-        <!-- AFTER -->
-        <div id="beforeImage" class="absolute inset-0 w-1/2 overflow-hidden border-r-4 border-primary">
-          <img src="/Precision_Detail/assets/images/restored_car.png"
-               class="w-full h-full object-cover">
-        </div>
+          <!-- BASE IMAGE (DAMAGED) -->
+      <img src="/Precision_Detail/assets/images/damaged_car.png"
+          class="absolute top-0 left-0 w-full h-full object-cover"
+          style="object-position: center right;">
+     
+      <!-- OVERLAY IMAGE (RESTORED) -->
+<div id="beforeImage"
+     class="absolute top-0 left-0 h-full overflow-hidden"
+     style="width: 50%;">
 
-      <!-- GLOW LINE -->
-      <div id="glowLine"
-           class="absolute top-0 left-1/2 h-full w-[3px] bg-primary shadow-[0_0_20px_rgba(236,91,19,0.8)] -translate-x-1/2">
-      </div>
+  <img src="/Precision_Detail/assets/images/restored_car.png"
+     class="absolute top-0 h-full object-cover"
+     style="
+       width: 90vw;
+       max-width: none;
+       left: 0px;
+       object-position: center;
+     ">
+</div>
 
-      <!-- HANDLE -->
-      <div id="sliderHandle"
-           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize z-10">
+      <!-- DIVIDER + HANDLE -->
+      <div id="sliderDivider"
+           class="absolute top-0 h-full w-[3px] bg-orange-500"
+           style="left: 50%;">
 
-        <div class="w-12 h-12 rounded-full bg-primary border-4 border-white shadow-xl flex items-center justify-center hover:scale-110 transition">
-          <span class="material-symbols-outlined text-white text-lg">drag_indicator</span>
+        <!-- HANDLE -->
+        <div id="sliderHandle"
+             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+
+          <div class="w-12 h-12 rounded-full bg-orange-500 border-4 border-white shadow-xl flex items-center justify-center cursor-ew-resize">
+            <span class="material-symbols-outlined text-white text-lg">drag_indicator</span>
+          </div>
+
         </div>
       </div>
 
     </div>
+
   </div>
 </section>
+
         
 </main>
 <!-- Footer -->
@@ -610,74 +623,44 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // SLIDER FIX
-  const container = document.getElementById("sliderContainer");
-  const before = document.getElementById("beforeImage");
-  const handle = document.getElementById("sliderHandle");
-
-  if (container && before && handle) {
-    function moveSlider(x) {
-      const rect = container.getBoundingClientRect();
-      let pos = x - rect.left;
-
-      pos = Math.max(0, Math.min(pos, rect.width));
-
-      before.style.width = pos + "px";
-      handle.style.left = pos + "px";
-    }
-
-    container.addEventListener("mousemove", (e) => {
-      if (e.buttons === 1) moveSlider(e.clientX);
-    });
-
-    container.addEventListener("touchmove", (e) => {
-      moveSlider(e.touches[0].clientX);
-    });
-  }
-
 });
 </script>
 
- <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
 
   const container = document.getElementById("sliderContainer");
   const before = document.getElementById("beforeImage");
-  const handle = document.getElementById("sliderHandle");
-  const glow = document.getElementById("glowLine");
+  const divider = document.getElementById("sliderDivider");
 
-  function setInitial() {
-    const width = container.offsetWidth / 2;
-    before.style.width = width + "px";
-    handle.style.left = width + "px";
-    glow.style.left = width + "px";
-  }
+  let isDragging = false;
 
-  function moveSlider(x) {
+  function move(x) {
     const rect = container.getBoundingClientRect();
     let pos = x - rect.left;
 
     pos = Math.max(0, Math.min(pos, rect.width));
 
     before.style.width = pos + "px";
-    handle.style.left = pos + "px";
-    glow.style.left = pos + "px";
+    divider.style.left = pos + "px";
   }
 
-  let isDragging = false;
-
+  // Mouse
   container.addEventListener("mousedown", () => isDragging = true);
   window.addEventListener("mouseup", () => isDragging = false);
 
   container.addEventListener("mousemove", (e) => {
-    if (isDragging) moveSlider(e.clientX);
+    if (isDragging) move(e.clientX);
   });
+
+  // Touch
+  container.addEventListener("touchstart", () => isDragging = true);
+  container.addEventListener("touchend", () => isDragging = false);
 
   container.addEventListener("touchmove", (e) => {
-    moveSlider(e.touches[0].clientX);
+    move(e.touches[0].clientX);
   });
 
-  setInitial(); // 🔥 IMPORTANT
 });
 </script>
         
