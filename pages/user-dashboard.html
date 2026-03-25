@@ -124,13 +124,11 @@
 <!-- Section Templates -->
 <script type="text/template" id="tmpl-overview">
 <!-- HEADER -->
-<div class="flex items-center gap-4 mb-4">
-    <div>
-        <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Dashboard Overview</h1>
-        <p class="text-xs text-slate-500 dark:text-slate-400">
-            Welcome back, Alex! Your detailing studio at a glance.
-        </p>
-    </div>
+<div>
+    <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Dashboard Overview</h1>
+    <p class="text-xs text-slate-500 dark:text-slate-400">
+        Welcome back, Alex! Your detailing studio at a glance.
+    </p>
 </div>
 <div class="pt-10 md:pt-4 px-6 pb-32 md:pb-12 space-y-8 max-w-7xl mx-auto w-full">
 <!-- Welcome Section -->
@@ -212,8 +210,8 @@
 <p class="text-sm text-slate-500 dark:text-slate-500 dark:text-slate-400">Performance metrics across all regions</p>
 </div>
 <div class="flex gap-2">
-<button class="px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-xs font-semibold text-black hover:text-red/80 transition-colors">Daily</button>
-<button class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-semibold shadow-[0_0_20px_rgba(192,193,255,0.4)]">Weekly</button>
+<button class="px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white text-xs font-semibold hover:bg-primary/10 hover:text-primary transition-all duration-300">Daily</button>
+<button class="px-4 py-2 rounded-xl bg-primary text-white text-xs font-semibold shadow-[0_0_20px_rgba(236,91,19,0.4)]">Weekly</button>
 </div>
 </div>
 <div class="flex-grow p-8 flex items-center justify-center relative">
@@ -303,7 +301,10 @@
 <script type="text/template" id="tmpl-profile">
 <!-- HEADER -->
 <div class="flex items-center gap-4 mb-8">
-
+    <button onclick="switchSection('overview')" 
+        class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 transition">
+        <span class="material-symbols-outlined text-xl">arrow_back</span>
+    </button>
     <div>
         <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Profile Management</h1>
         <p class="text-xs text-slate-500 dark:text-slate-400">
@@ -332,7 +333,7 @@
 <h3 class="text-xl font-bold text-slate-900 dark:text-white font-serif">Jacob Bethel</h3>
 <p class="text-primary text-sm font-medium mb-4">Master Detailer</p>
 <div class="flex gap-2 w-full">
-<button class="flex-1 text-xs font-semibold py-2 bg-slate-50 dark:bg-slate-800 hover:bg-white dark:bg-slate-900 transition-colors rounded-lg border border-slate-200 dark:border-accent-dark">Change Photo</button>
+<button class="px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white text-xs font-semibold hover:bg-primary/10 hover:text-primary transition-all duration-300 flex-1">Change Photo</button>
 <button class="p-2 text-red-500/80 hover:bg-red-500/10 transition-colors rounded-lg">
 <span class="material-symbols-outlined text-sm">delete</span>
 </button>
@@ -368,33 +369,33 @@
 <div class="space-y-2">
 <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ml-1">Full Name</label>
 <div class="relative">
-<input class="w-full bg-slate-50 dark:bg-slate-800est border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="text" value="Jacob Bethel"/>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="text" value="Jacob Bethel"/>
 </div>
 </div>
 <!-- Email Field -->
 <div class="space-y-2">
 <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ml-1">Email Address</label>
-<input class="w-full bg-slate-50 dark:bg-slate-800est border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="email" value="julian@obsidian.io"/>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="email" value="julian@obsidian.io"/>
 </div>
 <!-- Phone Field -->
 <div class="space-y-2">
 <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ml-1">Phone Number</label>
-<input class="w-full bg-slate-50 dark:bg-slate-800est border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="tel" value="+1 (555) 000-1234"/>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="tel" value="+1 (555) 000-1234"/>
 </div>
 <!-- Occupation -->
 <div class="space-y-2">
 <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500 dark:text-slate-400 ml-1">Occupation</label>
-<input class="w-full bg-slate-50 dark:bg-slate-800est border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="text" value="Product Designer"/>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none" type="text" value="Product Designer"/>
 </div>
 </div>
 <div class="space-y-2">
 <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ml-1">Biography</label>
-<textarea class="w-full bg-slate-50 dark:bg-slate-800est border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-primary/20 focus:border-primary/40 transition-all outline-none resize-none" rows="4">Delivering uncompromising automotive perfection through precision vehicle restoration and ceramic protection.</textarea>
+<textarea class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-accent-dark rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/20 focus:border-primary/40 transition-all outline-none resize-none" rows="4">Delivering uncompromising automotive perfection through precision vehicle restoration and ceramic protection.</textarea>
 </div>
 <!-- Action Buttons -->
 <div class="flex flex-col sm:flex-row items-center justify-end gap-4 pt-6 border-t border-slate-200 dark:border-accent-dark">
-<button class="w-full sm:w-auto px-8 py-3 text-sm font-semibold text-slate-500 dark:text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors" type="button">Discard Changes</button>
-<button class="w-full sm:w-auto px-10 py-3 bg-gradient-to-br from-primary to-orange-600 text-white font-bold rounded-xl hover:shadow-[0_0_30px_rgba(192,193,255,0.3)] transition-all active:scale-95" type="submit">Save Profile</button>
+<button class="w-full sm:w-auto px-8 py-3 text-sm font-semibold text-slate-700 dark:text-white hover:text-primary transition-colors" type="button">Discard Changes</button>
+<button class="w-full sm:w-auto px-10 py-3 bg-gradient-to-br from-primary to-orange-600 text-white font-bold rounded-xl hover:shadow-[0_0_30px_rgba(236,91,19,0.3)] transition-all active:scale-95" type="submit">Save Profile</button>
 </div>
 </form>
 </div>
@@ -415,7 +416,10 @@
 <script type="text/template" id="tmpl-saved">
 <!-- HEADER -->
 <div class="flex items-center gap-4 mb-8">
-    
+    <button onclick="switchSection('overview')" 
+        class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 transition">
+        <span class="material-symbols-outlined text-xl">arrow_back</span>
+    </button>
     <div>
         <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Saved Services</h1>
         <p class="text-xs text-slate-500 dark:text-slate-400">
@@ -427,7 +431,7 @@
 <!-- Editorial Header Section content moved to header -->
 <div class="flex items-center gap-3">
 <span class="text-xs font-display uppercase tracking-widest text-slate-400">Sorted by</span>
-<button class="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl text-sm font-medium border border-slate-200 dark:border-accent-dark flex items-center gap-2 hover:bg-slate-100 dark:bg-slate-800 transition-colors">
+<button class="bg-white dark:bg-slate-900 px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white text-sm font-medium border border-slate-200 dark:border-accent-dark flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
               Recently Added
               <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
 </button>
@@ -579,6 +583,10 @@
 <script type="text/template" id="tmpl-orders">
 <!-- HEADER -->
 <div class="flex items-center gap-4 mb-8">
+    <button onclick="switchSection('overview')" 
+        class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 transition">
+        <span class="material-symbols-outlined text-xl">arrow_back</span>
+    </button>
     <div>
         <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Booking History</h1>
         <p class="text-xs text-slate-500 dark:text-slate-400">
@@ -627,10 +635,10 @@
 <div class="flex items-center justify-between mb-2">
 <h3 class="text-lg font-bold font-display">Recent Activity</h3>
 <div class="flex gap-2">
-<button class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+<button class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-sm">filter_list</span>
 </button>
-<button class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+<button class="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-white hover:text-primary transition-colors">
 <span class="material-symbols-outlined text-sm">sort</span>
 </button>
 </div>
@@ -640,7 +648,7 @@
 <!-- Card 1: Shipped -->
 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group">
 <div class="flex flex-col md:flex-row md:items-center gap-6">
-<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800est flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
 <span class="material-symbols-outlined text-primary text-3xl">memory</span>
 </div>
 <div class="flex-1">
@@ -709,7 +717,7 @@
 <!-- Card 2: Pending -->
 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group">
 <div class="flex flex-col md:flex-row md:items-center gap-6">
-<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800est flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
 <span class="material-symbols-outlined text-primary text-3xl">storage</span>
 </div>
 <div class="flex-1">
@@ -746,7 +754,7 @@
 <!-- Card 3: Cancelled -->
 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group opacity-70 grayscale-[0.5]">
 <div class="flex flex-col md:flex-row md:items-center gap-6">
-<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800est flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
 <span class="material-symbols-outlined text-red-500 text-3xl">router</span>
 </div>
 <div class="flex-1">
@@ -783,7 +791,7 @@
 <!-- Card 4: Shipped -->
 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-accent-dark shadow-sm hover:border-primary/50 transition-all rounded-3xl p-5 md:p-6 transition-all duration-300 hover:bg-white/60 dark:bg-slate-900/60 cursor-pointer group">
 <div class="flex flex-col md:flex-row md:items-center gap-6">
-<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800est flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
+<div class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-accent-dark shadow-inner">
 <span class="material-symbols-outlined text-primary text-3xl">developer_board</span>
 </div>
 <div class="flex-1">
@@ -828,8 +836,10 @@
 <div class="h-[calc(100vh-140px)] md:h-[calc(100vh-80px)] flex flex-col animate-in fade-in duration-500">
     <!-- HEADER -->
     <div class="flex items-center gap-4 mb-4 shrink-0">
-        
-    
+        <button onclick="switchSection('overview')" 
+            class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 transition">
+            <span class="material-symbols-outlined text-xl">arrow_back</span>
+        </button>
         <div>
             <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Communications</h1>
             <p class="text-xs text-slate-500 dark:text-slate-400">
@@ -1028,7 +1038,10 @@
 <div class="space-y-8 animate-in fade-in duration-500">
     <!-- HEADER -->
     <div class="flex items-center gap-4 mb-8">
-        
+        <button onclick="switchSection('overview')" 
+            class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 transition">
+            <span class="material-symbols-outlined text-xl">arrow_back</span>
+        </button>
         <div>
             <h1 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Dashboard Settings</h1>
             <p class="text-xs text-slate-500 dark:text-slate-400">
