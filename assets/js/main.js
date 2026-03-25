@@ -267,4 +267,64 @@ document.addEventListener('DOMContentLoaded', () => {
              if(icon) icon.classList.add('text-red-500');
         }
     }
+    
+    // 7. Inline Subscription Success Handler
+    const showInlineSuccess = (container, message) => {
+        // Remove existing success message if any
+        const existing = container.parentElement.querySelector('.subscription-success-text');
+        if (existing) existing.remove();
+        const successMsg = document.createElement('div');
+        successMsg.className = 'subscription-success-text';
+        successMsg.textContent = message;
+        container.parentElement.appendChild(successMsg);
+        // Trigger animation
+        setTimeout(() => successMsg.classList.add('active'), 10);
+        // Remove after 5 seconds
+        setTimeout(() => {
+            successMsg.classList.remove('active');
+            setTimeout(() => successMsg.remove(), 500);
+        }, 5000);
+    };
+    // Footer Subscribe Handler
+    const allFooterButtons = document.querySelectorAll('footer button');
+    let subBtn = null;
+    let subInput = null;
+    allFooterButtons.forEach(btn => {
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon && (icon.textContent.trim() === 'send' || icon.innerText.trim() === 'send')) {
+            subBtn = btn;
+            subInput = btn.parentElement.querySelector('input[type="email"]');
+        }
+    });
+    // Fallback: search by heading if not found by icon
+    if (!subBtn || !subInput) {
+        const footerHeadings = Array.from(document.querySelectorAll('footer h4, footer h5'));
+        const subscribeHeading = footerHeadings.find(h => h.textContent.toLowerCase().includes('subscribe'));
+        if (subscribeHeading) {
+            const container = subscribeHeading.parentElement;
+            subBtn = subBtn || container.querySelector('button');
+            subInput = subInput || container.querySelector('input[type="email"]');
+        }
+    }
+    if (subBtn && subInput) {
+        const subscribeContainer = subBtn.parentElement; // The flex container
+        subBtn.addEventListener('click', () => {
+            const email = subInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (emailRegex.test(email)) {
+                showInlineSuccess(subscribeContainer, "Thanks for chosing US");
+                subInput.value = '';
+                subInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+            } else {
+                subInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+                subInput.focus();
+            }
+        });
+        
+        // Allow entry key
+        subInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') subBtn.click();
+        });
+    }
 });
