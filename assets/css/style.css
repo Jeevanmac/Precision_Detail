@@ -207,3 +207,25 @@ html.dark #navbar a[href="login.html"] {
 html.dark #navbar a[href="login.html"] span {
     color: #0f172a !important;
 }
+
+
+/* ============================================
+   Inline Subscription Success
+   ============================================ */
+.subscription-success-text {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.1rem !important;
+    color: #ec5b13 !important;
+    margin-top: 1rem !important;
+    font-style: italic !important;
+    font-weight: 700 !important;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+    display: block;
+}
+.subscription-success-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
