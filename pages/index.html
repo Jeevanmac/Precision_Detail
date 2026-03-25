@@ -461,28 +461,58 @@
         
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-<!-- BEFORE AFTER SLIDER -->
-<section class="py-16 md:py-24 bg-white dark:bg-background-dark" data-aos="fade-up">
-  <div class="max-w-5xl mx-auto px-4 md:px-6">
+<style>
+#sliderContainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    <h2 class="serif-heading text-3xl md:text-5xl text-slate-900 dark:text-white text-center mb-10">
+/* Prevent stretching mismatch */
+#beforeImage img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style>
+
+
+<!-- BEFORE AFTER SLIDER -->
+<section class="py-20 md:py-28 bg-gradient-to-b from-white to-slate-100 dark:from-[#0a0a0a] dark:to-black">
+
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+
+    <h2 class="serif-heading text-4xl md:text-6xl text-center text-slate-900 dark:text-white mb-14">
       Transformation Reveal
     </h2>
 
-    <div id="sliderContainer" class="relative w-full h-[250px] sm:h-[350px] md:h-[450px] overflow-hidden rounded-3xl shadow-2xl border border-slate-200 dark:border-white/10">
-      
-      <!-- AFTER -->
-      <img src="https://images.unsplash.com/photo-1617814065890-6f4b2c5b5b89" class="absolute inset-0 w-full h-full object-cover">
+    <div id="sliderContainer" 
+         class="relative w-full h-[280px] sm:h-[380px] md:h-[500px] overflow-hidden rounded-3xl shadow-2xl border border-white/10">
 
-      <!-- BEFORE -->
-      <div id="beforeImage" class="absolute inset-0 w-1/2 overflow-hidden border-r-4 border-primary">
-        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537" class="w-full h-full object-cover">
+<!-- BEFORE (damaged car should be LEFT / background) -->
+<img src="../assets/images/damaged_car.png"
+     class="absolute inset-0 w-full h-full object-cover">
+
+<!-- AFTER (restored car should reveal on drag) -->
+<div id="beforeImage" class="absolute inset-0 w-1/2 overflow-hidden border-r-4 border-primary">
+  <img src="../assets/images/restored_car.png"
+       class="w-full h-full object-cover">
+</div>
+
+      <!-- GLOW LINE -->
+      <div id="glowLine"
+           class="absolute top-0 left-1/2 h-full w-[3px] bg-primary shadow-[0_0_20px_rgba(236,91,19,0.8)] -translate-x-1/2">
       </div>
 
       <!-- HANDLE -->
-      <div id="sliderHandle" class="absolute top-0 left-1/2 w-1 h-full bg-primary flex items-center justify-center -translate-x-1/2 cursor-ew-resize">
-        <div class="w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-[16px]">code</span>
+      <div id="sliderHandle"
+           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize z-10">
+
+        <div class="w-12 h-12 rounded-full bg-primary border-4 border-white shadow-xl flex items-center justify-center hover:scale-110 transition">
+          <span class="material-symbols-outlined text-white text-lg">drag_indicator</span>
         </div>
       </div>
 
@@ -608,7 +638,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-  
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const container = document.getElementById("sliderContainer");
+  const before = document.getElementById("beforeImage");
+  const handle = document.getElementById("sliderHandle");
+  const glow = document.getElementById("glowLine");
+
+  function setInitial() {
+    const width = container.offsetWidth / 2;
+    before.style.width = width + "px";
+    handle.style.left = width + "px";
+    glow.style.left = width + "px";
+  }
+
+  function moveSlider(x) {
+    const rect = container.getBoundingClientRect();
+    let pos = x - rect.left;
+
+    pos = Math.max(0, Math.min(pos, rect.width));
+
+    before.style.width = pos + "px";
+    handle.style.left = pos + "px";
+    glow.style.left = pos + "px";
+  }
+
+  let isDragging = false;
+
+  container.addEventListener("mousedown", () => isDragging = true);
+  window.addEventListener("mouseup", () => isDragging = false);
+
+  container.addEventListener("mousemove", (e) => {
+    if (isDragging) moveSlider(e.clientX);
+  });
+
+  container.addEventListener("touchmove", (e) => {
+    moveSlider(e.touches[0].clientX);
+  });
+
+  setInitial(); // 🔥 IMPORTANT
+});
+</script>
         
 <script src="../assets/js/main.js"></script>
 </body></html>
