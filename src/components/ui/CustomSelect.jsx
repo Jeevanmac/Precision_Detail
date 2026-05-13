@@ -87,16 +87,25 @@ const CustomSelect = ({
                                             {isHovered && (
                                                 <motion.div 
                                                     layoutId="hover-bg"
-                                                    className="absolute inset-0 bg-primary/10 z-0"
-                                                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                                                    initial={{ opacity: 0, scale: 0.95 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    exit={{ opacity: 0, scale: 0.95 }}
+                                                    className="absolute inset-0 bg-primary/10 z-0 rounded-xl"
+                                                    transition={{ type: "spring", bounce: 0, duration: 0.6 }}
                                                 />
                                             )}
 
                                             {(isSelected || isHovered) && (
                                                 <motion.div 
-                                                    layoutId="active-bar"
-                                                    className="absolute left-0 w-1 h-2/3 bg-primary rounded-r-full z-10"
-                                                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                                                    initial={{ scaleY: 0, opacity: 0 }}
+                                                    animate={{ scaleY: 1, opacity: 1 }}
+                                                    exit={{ scaleY: 0, opacity: 0 }}
+                                                    className="absolute left-0 w-1 h-2/3 bg-primary rounded-r-full z-10 origin-center"
+                                                    transition={{ 
+                                                        type: "spring", 
+                                                        bounce: 0.1, 
+                                                        duration: 0.7
+                                                    }}
                                                 />
                                             )}
                                             
