@@ -39,7 +39,8 @@ import {
     Cpu,
     Layers,
     Server,
-    Zap
+    Zap,
+    Shield
 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import CustomSelect from '../components/ui/CustomSelect';
