@@ -38,7 +38,8 @@ import {
     Loader2,
     Cpu,
     Layers,
-    Server
+    Server,
+    Zap
 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import CustomSelect from '../components/ui/CustomSelect';
