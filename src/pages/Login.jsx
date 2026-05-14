@@ -4,7 +4,6 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Shield, 
-    Zap, 
     Layers, 
     Cpu, 
     ArrowRight, 
@@ -18,23 +17,28 @@ import {
 } from 'lucide-react';
 import useAuthStore from '../store/useAuthStore';
 import api from '../lib/axiosInstance';
+import ForgotPasswordModal from '../components/auth/ForgotPasswordModal';
 
-const FeatureBadge = ({ icon: Icon, text }) => (
-    <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 backdrop-blur-md"
-    >
-        <Icon size={12} className="text-primary" />
-        <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/70">{text}</span>
-    </motion.div>
-);
+const FeatureBadge = ({ icon, text }) => {
+    const Icon = icon;
+    return (
+        <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 backdrop-blur-md"
+        >
+            <Icon size={12} className="text-primary" />
+            <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/70">{text}</span>
+        </motion.div>
+    );
+};
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
+    const [isForgotModalOpen, setIsForgotModalOpen] = useState(false);
     const { login } = useAuthStore();
     const navigate = useNavigate();
     const { executeRecaptcha } = useGoogleReCaptcha();
@@ -234,12 +238,12 @@ const Login = () => {
 
                             <div className="mb-8 pt-4 lg:pt-8">
                                 <div className="flex items-center gap-4 mb-3">
-                                    <h2 className="text-4xl font-black tracking-tight text-on-surface">Welcome back</h2>
+                                <h2 className="text-4xl font-black tracking-tight text-on-surface">Login</h2>
                                     <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shadow-inner border border-primary/20">
                                         <Lock size={18} />
                                     </div>
                                 </div>
-                                <p className="text-on-surface-variant text-sm font-medium opacity-80">Sign in to continue to your dashboard</p>
+                                <p className="text-on-surface-variant text-sm font-medium opacity-80">Sign in to your account to continue</p>
                             </div>
 
                             {error && (
@@ -255,7 +259,7 @@ const Login = () => {
 
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="space-y-2.5">
-                                    <label className="text-[11px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Identity / Email</label>
+                                    <label className="text-[11px] uppercase font-black text-on-surface tracking-widest ml-1">Email Address</label>
                                     <div className="relative group">
                                         <Mail size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" />
                                         <input 
@@ -263,16 +267,22 @@ const Login = () => {
                                             type="email"
                                             value={email}
                                             onChange={e => setEmail(e.target.value)}
-                                            placeholder="dev@cvtech.io"
-                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-6 py-4 text-on-surface placeholder:text-on-surface/50 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
+                                            placeholder="Enter your email"
+                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-6 py-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2.5">
                                     <div className="flex justify-between items-center px-1">
-                                        <label className="text-[11px] uppercase font-black text-white dark:text-white tracking-widest">Access Key</label>
-                                        <Link to="#" className="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">Forgot Key?</Link>
+                                        <label className="text-[11px] uppercase font-black text-on-surface tracking-widest">Password</label>
+                                        <button 
+                                            type="button"
+                                            onClick={() => setIsForgotModalOpen(true)}
+                                            className="text-[10px] font-black uppercase text-primary tracking-widest hover:underline outline-none"
+                                        >
+                                            Forgot Password?
+                                        </button>
                                     </div>
                                     <div className="relative group">
                                         <Lock size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" />
@@ -282,7 +292,7 @@ const Login = () => {
                                             value={password}
                                             onChange={e => setPassword(e.target.value)}
                                             placeholder="••••••••••••"
-                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-14 py-4 text-on-surface placeholder:text-on-surface/50 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
+                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-14 py-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
                                         />
                                         <button 
                                             type="button"
@@ -304,14 +314,14 @@ const Login = () => {
                                     className="w-full py-5 bg-primary text-on-primary font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 mt-4 relative overflow-hidden group"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                    INITIALIZE SESSION <ArrowRight size={16} />
+                                    SIGN IN <ArrowRight size={16} />
                                 </button>
                             </form>
 
                             <div className="relative my-10">
                                 <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-outline-variant/10"></div></div>
                                 <div className="relative flex justify-center text-[9px] uppercase tracking-[0.4em] font-black text-on-surface-variant/40">
-                                    <span className="bg-surface-container-low px-4">Or Continue With</span>
+                                    <span className="bg-surface-container-low px-4">OR LOGIN WITH</span>
                                 </div>
                             </div>
 
@@ -325,7 +335,7 @@ const Login = () => {
                             </div>
 
                             <p className="text-center text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mt-8">
-                                New Terminal? <Link to="/signup" className="text-primary hover:underline">Register Identity</Link>
+                                Don't have an account? <Link to="/signup" className="text-primary hover:underline">Sign Up</Link>
                             </p>
 
                             {/* [DEBUG BYPASS] */}
@@ -339,7 +349,7 @@ const Login = () => {
                                         }}
                                         className="py-2.5 bg-error/5 border border-error/20 rounded-xl text-error text-[8px] font-black uppercase tracking-widest hover:bg-error/10 transition-all"
                                     >
-                                        ⚠️ Admin Tunnel
+                                        ⚠️ Admin Login
                                     </button>
                                     <button 
                                         type="button"
@@ -349,7 +359,7 @@ const Login = () => {
                                         }}
                                         className="py-2.5 bg-primary/5 border border-primary/20 rounded-xl text-primary text-[8px] font-black uppercase tracking-widest hover:bg-primary/10 transition-all"
                                     >
-                                        🔧 User Tunnel
+                                        🔧 User Login
                                     </button>
                                 </div>
                             )}
@@ -362,6 +372,15 @@ const Login = () => {
             <div className="absolute top-8 right-8 z-[100]">
                 {/* Theme toggle logic should be integrated with MainLayout or a Global Theme Provider */}
             </div>
+            {/* Forgot Password Modal */}
+            <AnimatePresence>
+                {isForgotModalOpen && (
+                    <ForgotPasswordModal 
+                        isOpen={isForgotModalOpen} 
+                        onClose={() => setIsForgotModalOpen(false)} 
+                    />
+                )}
+            </AnimatePresence>
         </div>
     );
 };

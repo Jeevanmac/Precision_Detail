@@ -22,7 +22,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="w-full pt-32 pb-12 border-t border-outline-variant/10 bg-background relative overflow-hidden">
+        <footer className="w-full pt-32 pb-12 border-t border-slate-400/12 dark:border-outline-variant/10 bg-background relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
             
@@ -122,7 +122,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-12 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">
+                <div className="pt-12 border-t border-slate-400/12 dark:border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-black uppercase tracking-widest text-[#64748B] dark:text-on-surface-variant">
                     <p>© {new Date().getFullYear()} CV TECH LTD. ALL SYSTEMS OPERATIONAL.</p>
                     <div className="flex gap-10">
                         <Link to="#" className="hover:text-on-surface transition-colors">Privacy Policy</Link>

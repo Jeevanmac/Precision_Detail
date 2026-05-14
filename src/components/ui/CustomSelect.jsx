@@ -34,7 +34,7 @@ const CustomSelect = ({
     return (
         <div className={`space-y-2 relative ${className}`} ref={containerRef}>
             {label && (
-                <label className="text-[11px] uppercase font-black text-white dark:text-white tracking-widest ml-1">
+                <label className="text-[11px] uppercase font-black text-on-surface tracking-widest ml-1">
                     {label}
                 </label>
             )}
@@ -42,15 +42,15 @@ const CustomSelect = ({
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className={`w-full bg-surface-container-low border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-left flex justify-between items-center transition-all hover:border-primary/40 focus:ring-2 focus:ring-primary/20 ${isOpen ? 'ring-2 ring-primary/40 border-primary/40' : ''}`}
+                className={`w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-left flex justify-between items-center transition-all hover:border-primary/40 focus:ring-2 focus:ring-primary/20 ${isOpen ? 'ring-2 ring-primary/40 border-primary/40' : ''}`}
             >
-                <span className={`text-sm font-medium ${selectedOption ? 'text-on-surface' : 'text-on-surface/50 dark:text-white/40'}`}>
+                <span className={`text-sm font-medium ${selectedOption ? 'text-on-surface' : 'text-on-surface-variant opacity-50'}`}>
                     {selectedOption ? selectedOption.label : placeholder}
                 </span>
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-on-surface-variant dark:text-white/60"
+                    className="text-on-surface-variant"
                 >
                     <ChevronDown size={18} />
                 </motion.div>

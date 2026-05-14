@@ -111,11 +111,11 @@ const Contact = () => {
             if (res.data.success) {
                 setSuccess(true);
                 setFormData({ fullName: '', email: '', phone: '', interest: '', message: '' });
-                toast.success('Synchronization Initiated');
+                toast.success('Message Sent Successfully');
             }
         } catch (err) {
-            console.error('Transmission failure', err);
-            toast.error('Mission Failed: Connection Severed');
+            console.error('Submission error', err);
+            toast.error('Failed to send message. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -165,7 +165,7 @@ const Contact = () => {
                 </div>
 
                 {/* Section 1: Hero */}
-                <section className="relative pt-8 pb-12 md:pt-10 md:pb-16 overflow-hidden px-8 md:px-26">
+                <section className="relative pt-1 pb-12 md:pt-1 md:pb-16 overflow-hidden px-8 md:px-26">
                     <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div 
                             initial={{ opacity: 0, x: -30 }}
@@ -293,9 +293,9 @@ const Contact = () => {
                     <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                         <div className="lg:col-span-5 space-y-8">
                             <div className="space-y-4">
-                                <h2 className="text-4xl font-black tracking-tight text-on-surface">Synchronize with <br /> Our Architects</h2>
+                                <h2 className="text-4xl font-black tracking-tight text-on-surface">Get in Touch</h2>
                                 <p className="text-on-surface-variant text-base font-medium leading-relaxed max-w-md">
-                                    Ready to deploy a new solution or scale your existing infrastructure? Submit your mission parameters and our lead architects will contact you shortly.
+                                    Have a project in mind? Fill out the form below and our team will get back to you as soon as possible.
                                 </p>
                             </div>
                             
@@ -331,8 +331,8 @@ const Contact = () => {
                                         <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-500 mx-auto mb-8 border border-emerald-500/20">
                                             <CheckCircle2 size={40} />
                                         </div>
-                                        <h2 className="text-3xl font-black text-on-surface tracking-tight mb-3">Message Transmitted</h2>
-                                        <p className="text-on-surface-variant text-base font-medium mb-10">Our engineering leads have received your synchronization request. Expect a response shortly.</p>
+                                        <h2 className="text-3xl font-black text-on-surface tracking-tight mb-3">Message Sent</h2>
+                                        <p className="text-on-surface-variant text-base font-medium mb-10">Thank you for reaching out! We've received your message and will get back to you shortly.</p>
                                         <button 
                                             onClick={() => setSuccess(false)} 
                                             className="px-12 py-4 bg-surface-container-high text-on-surface rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-primary hover:text-on-primary transition-all shadow-xl"
@@ -344,22 +344,22 @@ const Contact = () => {
                                     <form onSubmit={handleSubmit} className="space-y-6">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
-                                                <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Full Name</label>
+                                                <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Full Name</label>
                                                 <input 
                                                     required 
-                                                    className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-outline/30 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm" 
-                                                    placeholder="John Doe"
+                                                    className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm" 
+                                                    placeholder="Enter your name"
                                                     value={formData.fullName}
                                                     onChange={e => setFormData({...formData, fullName: e.target.value})}
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Email Address</label>
+                                                <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Email Address</label>
                                                 <input 
                                                     required 
                                                     type="email"
-                                                    className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-outline/30 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm" 
-                                                    placeholder="john@example.com"
+                                                    className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm" 
+                                                    placeholder="Enter your email"
                                                     value={formData.email}
                                                     onChange={e => setFormData({...formData, email: e.target.value})}
                                                 />
@@ -368,10 +368,10 @@ const Contact = () => {
                                         
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
-                                                <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Phone Number</label>
+                                                <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Phone Number</label>
                                                 <input 
-                                                    className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-outline/30 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm" 
-                                                    placeholder="+1 (555) 000-0000"
+                                                    className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm" 
+                                                    placeholder="Enter phone number"
                                                     value={formData.phone}
                                                     onChange={e => setFormData({...formData, phone: e.target.value})}
                                                 />
@@ -391,11 +391,11 @@ const Contact = () => {
                                         </div>
 
                                         <div className="space-y-2">
-                                            <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Your Message</label>
+                                            <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Your Message</label>
                                             <textarea 
                                                 required
-                                                className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-outline/30 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm min-h-[120px] resize-none" 
-                                                placeholder="Tell us about your project mission..."
+                                                className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-3.5 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm min-h-[120px] resize-none" 
+                                                placeholder="Tell us about your project..."
                                                 value={formData.message}
                                                 onChange={e => setFormData({...formData, message: e.target.value})}
                                             />

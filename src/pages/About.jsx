@@ -179,8 +179,8 @@ const About = () => {
                             <div className="absolute -inset-3 bg-primary/10 rounded-[2.5rem] blur-xl group-hover:bg-primary/20 transition-all duration-700"></div>
                             <div className="relative rounded-[2.5rem] overflow-hidden border border-outline-variant/10 shadow-xl bg-surface-container">
                                 <img 
-                                    src="/assets/globe-visual.png" 
-                                    className="w-full aspect-[4/5] object-cover opacity-90 invert dark:invert-0" 
+                                    src="/assets/mission.png" 
+                                    className="w-full aspect-[4/5] object-cover opacity-90" 
                                     alt="Engineering Space" 
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-50"></div>
@@ -322,8 +322,8 @@ const About = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="relative aspect-square lg:aspect-auto lg:h-[500px] rounded-[2.5rem] overflow-hidden border border-outline-variant/10 bg-background group">
                                 <img 
-                                    src="/assets/globe-visual.png" 
-                                    className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-1000" 
+                                    src="/assets/network-visual.png" 
+                                    className="w-full h-full object-contain opacity-70 group-hover:scale-105 transition-transform duration-1000" 
                                     alt="Global Map" 
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>

@@ -62,55 +62,77 @@ const Projects = () => {
 
     return (
         <MainLayout hasSidebar={true}>
-            <div className="flex pt-6">
+            <div className="flex pt-6 bg-background min-h-screen relative overflow-hidden">
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
+                    <div className="absolute top-[-15%] left-[-15%] w-[50%] h-[50%] bg-primary/10 blur-[150px] rounded-full opacity-50"></div>
+                    <div className="absolute bottom-[-15%] right-[-15%] w-[50%] h-[50%] bg-purple-500/10 blur-[150px] rounded-full opacity-50"></div>
+                </div>
                 {/* Sidebar Filters */}
-                <aside className="hidden lg:block w-72 fixed left-0 top-20 bottom-0 bg-surface-container-low border-r border-outline-variant/10 p-8 overflow-y-auto">
-                    <div className="flex flex-col space-y-8">
+                <aside className="hidden lg:block w-72 fixed left-0 top-20 bottom-0 bg-surface-container/80 backdrop-blur-3xl border-r border-outline-variant/20 p-8 overflow-y-auto z-20 shadow-xl">
+                    <div className="flex flex-col space-y-10 relative z-10">
                         <div>
-                            <h3 className="text-xs uppercase tracking-widest text-outline font-bold mb-6">Expertise</h3>
-                            <div className="flex flex-col space-y-2">
-                                {categories.map(cat => (
-                                    <button
-                                        key={cat}
-                                        onClick={() => setActiveFilter(cat)}
-                                        className={`flex items-center gap-3 px-4 py-2 rounded-xl font-semibold transition-all duration-300 text-sm ${
-                                            activeFilter === cat 
-                                            ? 'bg-primary/10 text-primary' 
-                                            : 'text-on-surface-variant hover:bg-surface-container-high'
-                                        }`}
-                                    >
-                                        <span className="material-symbols-outlined text-sm">
-                                            {cat === 'All Projects' ? 'grid_view' : 'category'}
-                                        </span>
-                                        <span className="tracking-wide">{cat}</span>
-                                    </button>
-                                ))}
+                            <div className="flex items-center gap-2.5 mb-8">
+                                <div className="w-1.5 h-6 bg-primary rounded-full shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
+                                <h3 className="text-[11px] uppercase tracking-[0.25em] text-on-surface/40 font-black">Projects</h3>
+                            </div>
+                            <div className="flex flex-col space-y-2.5">
+                                {categories.map(cat => {
+                                    const iconMap = {
+                                        'All Projects': 'grid_view',
+                                        'Web App': 'language',
+                                        'Mobile App': 'smartphone',
+                                        'Backend API': 'terminal',
+                                        'UI Kit': 'layers',
+                                        'Machine Learning': 'memory'
+                                    };
+                                    return (
+                                        <button
+                                            key={cat}
+                                            onClick={() => setActiveFilter(cat)}
+                                            className={`flex items-center gap-3.5 px-6 py-4 rounded-2xl font-black transition-all duration-500 text-[11px] uppercase tracking-widest group ${
+                                                activeFilter === cat 
+                                                ? 'bg-primary text-on-primary shadow-2xl shadow-primary/40 scale-[1.02]' 
+                                                : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
+                                            }`}
+                                        >
+                                            <span className={`material-symbols-outlined text-[18px] transition-transform duration-500 ${activeFilter === cat ? 'scale-110' : 'group-hover:scale-110 opacity-70'}`}>
+                                                {iconMap[cat] || 'category'}
+                                            </span>
+                                            <span>{cat}</span>
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
                 </aside>
 
                 {/* Main Content Area */}
-                <main className="flex-1 ml-0 lg:ml-72 p-8 lg:p-12">
-                    <header className="mb-12">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                            <div>
-                                <h1 className="text-5xl font-black tracking-tighter text-on-surface mb-2">
-                                    Browse <span className="text-primary">Projects</span>
+                <main className="flex-1 ml-0 lg:ml-72 p-8 lg:p-12 relative z-10">
+                    <header className="mb-16">
+                        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+                            <div className="relative">
+                                <div className="absolute -left-5 top-1/2 -translate-y-1/2 w-1.5 h-14 bg-primary/20 rounded-full blur-md"></div>
+                                <h1 className="text-5xl md:text-6xl font-black tracking-tighter text-on-surface mb-4">
+                                    Engineering <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">Catalog</span>
                                 </h1>
-                                <p className="text-on-surface-variant max-w-xl">
-                                    Explore high-end architectural templates and AI-driven models curated for the modern digital monolith.
+                                <p className="text-on-surface-variant max-w-xl text-base font-medium leading-relaxed">
+                                    Explore premium architectural blueprints and AI-driven models architected for the modern digital monolith.
                                 </p>
                             </div>
-                            <div className="w-full md:w-80 relative group">
-                                <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
-                                <input 
-                                    type="text" 
-                                    placeholder="Filter repository..." 
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full bg-surface-container-high border border-outline-variant/10 rounded-full py-4 pl-12 pr-4 text-on-surface placeholder:text-outline/50 focus:ring-1 focus:ring-primary outline-none transition-all"
-                                />
+                            <div className="w-full lg:w-[400px] relative group">
+                                <div className="absolute inset-0 bg-primary/10 dark:bg-primary/10 rounded-2xl blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-700"></div>
+                                <div className="relative">
+                                    <span className="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-white/30 group-focus-within:text-primary transition-all duration-500">search</span>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Search the repository..." 
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        className="w-full bg-surface-container backdrop-blur-xl border border-outline-variant/30 rounded-2xl py-5 pl-14 pr-6 text-on-surface placeholder:text-on-surface-variant/50 focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-lg"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </header>
@@ -120,15 +142,19 @@ const Projects = () => {
                             <div className="w-10 h-10 border-4 border-surface-container-highest border-t-primary rounded-full animate-spin"></div>
                         </div>
                     ) : !isAuthenticated ? (
-                        <div className="text-center py-32 bg-surface-container-low rounded-3xl border border-outline-variant/10 shadow-xl relative overflow-hidden group">
-                            <div className="absolute inset-0 border border-primary/20 rounded-3xl pointer-events-none group-hover:border-primary/40 transition-colors duration-500"></div>
-                            <span className="material-symbols-outlined text-6xl text-primary mb-6 animate-pulse">lock</span>
-                            <h3 className="text-3xl font-black text-on-surface mb-4 uppercase tracking-tighter">Sign in to see the projects</h3>
-                            <p className="text-on-surface-variant max-w-md mx-auto mb-8 font-medium">Authenticate your identity to access our premium architectural blueprints and technical modules.</p>
-                            <Link to="/login" className="px-8 py-4 bg-primary text-on-primary font-black uppercase tracking-widest text-xs rounded-xl shadow-lg shadow-primary/30 hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2">
-                                <span className="material-symbols-outlined text-sm">login</span>
-                                See Projects
-                            </Link>
+                        <div className="text-center py-24 bg-white/65 dark:bg-white/[0.02] backdrop-blur-[18px] rounded-[3rem] border border-white/40 dark:border-white/5 shadow-[0_20px_50px_rgba(15,23,42,0.08)] relative overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                            <div className="relative z-10">
+                                <div className="w-24 h-24 bg-primary/10 rounded-[2rem] flex items-center justify-center text-primary mx-auto mb-10 border border-primary/20 shadow-[0_10px_30px_rgba(168,85,247,0.15)] animate-float">
+                                    <span className="material-symbols-outlined text-5xl">lock</span>
+                                </div>
+                                <h3 className="text-4xl md:text-5xl font-black text-on-surface mb-6 tracking-tighter uppercase leading-tight">Restricted<br />Architecture</h3>
+                                <p className="text-on-surface-variant max-w-md mx-auto mb-12 font-medium text-lg leading-relaxed px-6">Authenticate your identity to access our premium architectural blueprints and technical modules.</p>
+                                <Link to="/login" className="px-14 py-5 bg-primary text-on-primary font-black uppercase tracking-[0.25em] text-[11px] rounded-2xl shadow-[0_10px_30px_rgba(168,85,247,0.3)] hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-3 group/btn">
+                                    <span className="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">login</span>
+                                    Authorize Access
+                                </Link>
+                            </div>
                         </div>
                     ) : filteredProjects.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -137,10 +163,15 @@ const Projects = () => {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-32 bg-surface-container-low rounded-3xl border border-outline-variant/10">
-                            <span className="material-symbols-outlined text-6xl text-outline mb-4">search_off</span>
-                            <h3 className="text-xl font-bold text-on-surface mb-2">No active results</h3>
-                            <p className="text-on-surface-variant">No modules matched your precise search parameters.</p>
+                        <div className="text-center py-24 bg-surface-container backdrop-blur-xl rounded-[3rem] border border-outline-variant/20 shadow-xl relative overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                            <div className="relative z-10">
+                                <div className="w-20 h-20 bg-surface-container-high rounded-3xl flex items-center justify-center text-on-surface/20 mx-auto mb-8 border border-outline-variant/20">
+                                    <span className="material-symbols-outlined text-4xl">search_off</span>
+                                </div>
+                                <h3 className="text-2xl font-black text-on-surface mb-3 tracking-tighter uppercase">No modules found</h3>
+                                <p className="text-on-surface-variant max-w-sm mx-auto font-medium">We couldn't find any architectural patterns matching your current filter parameters.</p>
+                            </div>
                         </div>
                     )}
                 </main>

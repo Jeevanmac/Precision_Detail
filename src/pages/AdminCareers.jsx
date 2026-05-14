@@ -155,9 +155,9 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                             </div>
                             <div>
                                 <h2 className="text-2xl font-black text-on-surface tracking-tighter leading-tight">
-                                    {job ? 'Architectural Update' : 'New Role Configuration'}
+                                    {job ? 'Edit Job Listing' : 'New Job Listing'}
                                 </h2>
-                                <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em]">Engineering Recruitment Node</p>
+                                <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em]">Management Terminal</p>
                             </div>
                         </div>
                         <button onClick={onClose} className="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all border border-outline-variant/10">
@@ -174,10 +174,10 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                                 </h3>
                                 <div className="space-y-4">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Job Title</label>
+                                        <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Job Title</label>
                                         <input 
                                             required 
-                                            className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
+                                            className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant placeholder:opacity-50 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
                                             placeholder="e.g. Senior Fullstack Architect"
                                             value={formData.title}
                                             onChange={e => setFormData({...formData, title: e.target.value})}
@@ -222,9 +222,9 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                                                 onChange={val => setFormData({...formData, location: val})}
                                             />
                                         <div className="space-y-2">
-                                            <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Duration</label>
+                                            <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Duration</label>
                                             <input 
-                                                className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
+                                                className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant placeholder:opacity-50 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
                                                 placeholder="e.g. 6 Month Contract"
                                                 value={formData.duration}
                                                 onChange={e => setFormData({...formData, duration: e.target.value})}
@@ -241,10 +241,10 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                                 </h3>
                                 <div className="space-y-4">
                                     <div className="space-y-2">
-                                        <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Compensation (INR)</label>
+                                        <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Compensation (INR)</label>
                                         <input 
                                             required
-                                            className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
+                                            className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant placeholder:opacity-50 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
                                             placeholder="e.g. ₹80,000 – ₹1.2L/month"
                                             value={formData.salary}
                                             onChange={e => setFormData({...formData, salary: e.target.value})}
@@ -252,10 +252,10 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-2">
-                                            <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Priority (Sort)</label>
+                                            <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Priority (Sort)</label>
                                             <input 
                                                 type="number"
-                                                className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
+                                                className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
                                                 value={formData.priority}
                                                 onChange={e => setFormData({...formData, priority: parseInt(e.target.value)})}
                                             />
@@ -281,7 +281,7 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                                             >
                                                 <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${formData.isFeatured ? 'left-7' : 'left-1 opacity-40'}`}></div>
                                             </div>
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-white dark:text-white group-hover:text-primary transition-colors">Featured Node</span>
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-on-surface group-hover:text-primary transition-colors">Featured Node</span>
                                         </label>
                                         <div className="flex items-center gap-3">
                                             <input 
@@ -290,7 +290,7 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                                                 value={formData.accentColor}
                                                 onChange={e => setFormData({...formData, accentColor: e.target.value})}
                                             />
-                                            <span className="text-[10px] font-black uppercase tracking-widest text-white dark:text-white">Accent</span>
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-on-surface">Accent</span>
                                         </div>
                                     </div>
                                 </div>
@@ -304,8 +304,8 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                             </h3>
                             <textarea 
                                 required
-                                className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-3xl px-6 py-6 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm min-h-[180px] resize-none" 
-                                placeholder="Detail the mission, stack, and expectations..."
+                                className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-3xl px-6 py-6 text-on-surface placeholder:text-on-surface-variant placeholder:opacity-50 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm min-h-[180px] resize-none" 
+                                placeholder="Detail the job requirements and expectations..."
                                 value={formData.description}
                                 onChange={e => setFormData({...formData, description: e.target.value})}
                             />
@@ -318,7 +318,7 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                             </h3>
                             <div className="space-y-4">
                                 <input 
-                                    className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
+                                    className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant placeholder:opacity-50 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm" 
                                     placeholder="Type skill and press Enter..."
                                     value={skillInput}
                                     onChange={e => setSkillInput(e.target.value)}
@@ -347,7 +347,7 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                             onClick={onClose}
                             className="px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] border border-outline-variant/10 text-on-surface hover:bg-surface-container transition-all"
                         >
-                            Abort Sync
+                            Cancel
                         </button>
                         <button 
                             onClick={handleSubmit}
@@ -356,7 +356,7 @@ const JobModal = ({ job, isOpen, onClose, onSave }) => {
                         >
                             {loading ? <div className="w-4 h-4 border-2 border-on-primary border-t-transparent rounded-full animate-spin"></div> : (
                                 <>
-                                    <Save size={16} /> {job ? 'Update Identity' : 'Execute Deploy'}
+                                    <Save size={16} /> {job ? 'Save Changes' : 'Create Role'}
                                 </>
                             )}
                         </button>

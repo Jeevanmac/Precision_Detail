@@ -193,7 +193,7 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                                 <span className="material-symbols-outlined text-primary">edit_note</span>
                             </div>
                             <div>
-                                <h2 className="text-2xl font-black text-on-surface tracking-tighter uppercase">Edit Project Asset</h2>
+                                <h2 className="text-2xl font-black text-on-surface tracking-tighter uppercase">Edit Project</h2>
                                 <p className="text-[10px] text-on-surface-variant font-bold tracking-widest uppercase opacity-60">ID: {project?._id}</p>
                             </div>
                         </div>
@@ -215,8 +215,8 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                                     <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">Core Metadata</h3>
                                     <div className="space-y-4">
                                         <div className="space-y-2">
-                                            <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Asset Title</label>
-                                            <input required name="title" value={formData.title} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface/50 dark:placeholder:text-white/40" />
+                                            <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Project Title</label>
+                                            <input required name="title" value={formData.title} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="e.g. NeuralStack Framework" />
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="space-y-2">
@@ -234,17 +234,17 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Price (INR)</label>
-                                                <input required name="price" value={formData.price} onChange={handleChange} type="number" step="0.01" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface/50 dark:placeholder:text-white/40" />
+                                                <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Price (INR)</label>
+                                                <input required name="price" value={formData.price} onChange={handleChange} type="number" step="0.01" min="0" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="49.99" />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Tech Stack (Comma Separated)</label>
-                                            <input required name="techStack" value={formData.techStack} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface/50 dark:placeholder:text-white/40" />
+                                            <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Tech Stack (Comma Separated)</label>
+                                            <input required name="techStack" value={formData.techStack} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="React, Node.js, MongoDB" />
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Tags (Comma Separated)</label>
-                                            <input name="tags" value={formData.tags} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface/50 dark:placeholder:text-white/40" />
+                                            <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Tags (Comma Separated)</label>
+                                            <input name="tags" value={formData.tags} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" />
                                         </div>
                                     </div>
                                 </div>
@@ -284,14 +284,12 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                                 </div>
                             </div>
 
-                            {/* Right Column: Media & Links */}
                             <div className="space-y-8">
                                 <div className="space-y-6">
                                     <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">Media Management</h3>
                                     
-                                    {/* Image Preview / Upload */}
                                     <div className="space-y-4">
-                                        <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Preview Gallery</label>
+                                        <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Preview Gallery</label>
                                         <div className="grid grid-cols-3 gap-3">
                                             {existingImages.map((img, i) => (
                                                 <div key={i} className="aspect-square rounded-xl overflow-hidden border border-outline-variant/10 relative group">
@@ -309,9 +307,8 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                                         </div>
                                     </div>
 
-                                    {/* ZIP Upload */}
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Architecture Bundle (ZIP)</label>
+                                        <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Architecture Bundle (ZIP)</label>
                                         <div className="relative border border-outline-variant/10 bg-surface-container-highest rounded-2xl p-4 flex items-center gap-4 group cursor-pointer hover:bg-primary/5 transition-all">
                                             <input type="file" accept=".zip" onChange={handleZipChange} className="absolute inset-0 opacity-0 cursor-pointer" />
                                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -329,17 +326,17 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                                     <h3 className="text-xs font-black uppercase tracking-[0.2em] text-primary">External Integrations</h3>
                                     <div className="space-y-4">
                                         <div className="space-y-2">
-                                            <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Demo Video URL</label>
-                                            <input name="demoVideoUrl" value={formData.demoVideoUrl} onChange={handleChange} type="url" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface/50 dark:placeholder:text-white/40" placeholder="https://youtube.com/..." />
+                                            <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Demo Video URL</label>
+                                            <input name="demoVideoUrl" value={formData.demoVideoUrl} onChange={handleChange} type="url" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="https://youtube.com/..." />
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="space-y-2">
-                                                <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Live Demo Link</label>
-                                                <input name="externalLinks.demo" value={formData.externalLinks.demo} onChange={handleChange} type="url" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface/50 dark:placeholder:text-white/40" />
+                                                <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Live Demo Link</label>
+                                                <input name="externalLinks.demo" value={formData.externalLinks.demo} onChange={handleChange} type="url" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Repository URL</label>
-                                                <input name="externalLinks.repo" value={formData.externalLinks.repo} onChange={handleChange} type="url" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface/50 dark:placeholder:text-white/40" />
+                                                <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Repository URL</label>
+                                                <input name="externalLinks.repo" value={formData.externalLinks.repo} onChange={handleChange} type="url" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" />
                                             </div>
                                         </div>
                                     </div>
@@ -348,12 +345,11 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Detailed Description</label>
-                            <textarea required name="description" value={formData.description} onChange={handleChange} rows="6" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-[2rem] px-8 py-6 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface outline-none resize-none leading-relaxed placeholder:text-on-surface/50 dark:placeholder:text-white/40" />
+                            <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Description</label>
+                            <textarea required name="description" value={formData.description} onChange={handleChange} rows="4" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none resize-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="Enter project description..."></textarea>
                         </div>
                     </form>
 
-                    {/* Footer / Actions */}
                     <div className="p-8 border-t border-outline-variant/5 bg-surface-container-high/30">
                         {loading && (
                             <div className="mb-6 space-y-2">
@@ -372,14 +368,14 @@ const ProjectEditorModal = ({ isOpen, onClose, project, onUpdate }) => {
                         )}
                         <div className="flex justify-end gap-4">
                             <button onClick={onClose} disabled={loading} className="px-8 py-4 text-xs font-black uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors">
-                                Discard Changes
+                                Cancel
                             </button>
                             <button 
                                 onClick={handleSubmit}
                                 disabled={loading}
                                 className="px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50"
                             >
-                                {loading ? 'Processing...' : 'Apply Modifications'}
+                                {loading ? 'Saving...' : 'Save Changes'}
                             </button>
                         </div>
                     </div>

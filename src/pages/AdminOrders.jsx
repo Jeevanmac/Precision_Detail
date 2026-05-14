@@ -58,7 +58,7 @@ const AdminOrders = () => {
                                             </div>
                                         </td>
                                         <td className="px-8 py-6">
-                                            <span className="text-sm font-black text-white">₹{order.totalAmount}</span>
+                                            <span className="text-sm font-black text-on-surface">₹{order.totalAmount}</span>
                                         </td>
                                         <td className="px-8 py-6">
                                             <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border ${

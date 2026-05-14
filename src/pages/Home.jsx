@@ -130,13 +130,13 @@ const Home = () => {
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 1, delay: 0.2 }}
-                                className="relative w-full h-full"
+                                className="relative w-full h-full p-4 lg:p-12 flex items-center justify-center"
                             >
                                 <div className="absolute inset-0 bg-primary/10 blur-[100px] rounded-full"></div>
                                 <img 
                                     src="/assets/network-visual.png" 
                                     alt="Global Infrastructure" 
-                                    className="w-full h-full object-contain relative z-10 animate-float"
+                                    className="w-full h-full object-cover relative z-10 animate-float rounded-[3rem] shadow-2xl border border-primary/20"
                                 />
                                 
                                 {/* Overlay Card */}
@@ -308,7 +308,7 @@ const Home = () => {
 
                     <div className="relative">
                         {/* Connector Line */}
-                        <div className="absolute top-1/2 left-0 w-full h-px bg-outline-variant/30 -translate-y-1/2 hidden lg:block"></div>
+                        <div className="absolute top-8 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant/60 dark:via-primary/40 to-transparent -translate-y-1/2 hidden lg:block"></div>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 relative z-10">
                             {[

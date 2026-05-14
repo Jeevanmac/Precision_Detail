@@ -109,7 +109,7 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
                 role: role.title 
             });
             setSuccess(true);
-            toast.success('Identity Registered Successfully');
+            toast.success('Application Sent Successfully');
         } catch (err) {
             setError(err.response?.data?.message || err.message || 'Submission failed. Please try again.');
         } finally {
@@ -143,9 +143,9 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
                         <div className="p-8 pb-4 shrink-0 bg-surface-container-low/50 backdrop-blur-xl border-b border-outline-variant/10">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[9px] font-black uppercase tracking-widest mb-3" style={{ borderColor: role.accentColor + '40', color: role.accentColor }}>Hiring System v4.0</div>
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[9px] font-black uppercase tracking-widest mb-3" style={{ borderColor: role.accentColor + '40', color: role.accentColor }}>Job Application</div>
                                     <h2 className="text-2xl md:text-3xl font-black text-on-surface tracking-tighter leading-tight">Apply for {role.title}</h2>
-                                    <p className="text-on-surface-variant text-xs font-medium mt-1">Submit your architectural profile to the network.</p>
+                                    <p className="text-on-surface-variant text-xs font-medium mt-1">Fill out the form below to apply for this position.</p>
                                 </div>
                                 <button onClick={onClose} className="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-error/10 hover:text-error transition-all border border-outline-variant/10 group">
                                     <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
@@ -164,13 +164,13 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
                                     <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-500 mx-auto mb-8 border border-emerald-500/20">
                                         <CheckCircle2 size={40} />
                                     </div>
-                                    <h2 className="text-3xl font-black text-on-surface tracking-tight mb-3">Identity Registered</h2>
-                                    <p className="text-on-surface-variant text-base font-medium mb-10">Your application has been logged in our recruitment grid. We will evaluate your node shortly.</p>
+                                    <h2 className="text-3xl font-black text-on-surface tracking-tight mb-3">Application Received</h2>
+                                    <p className="text-on-surface-variant text-base font-medium mb-10">We've received your application! Our team will review your profile and get back to you soon.</p>
                                     <button 
                                         onClick={onClose} 
                                         className="px-12 py-4 bg-surface-container-high text-on-surface rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-primary hover:text-on-primary transition-all shadow-xl"
                                     >
-                                        Close Terminal
+                                        Close Application
                                     </button>
                                 </motion.div>
                             ) : (
@@ -189,21 +189,21 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
                                     <form onSubmit={handleSubmit} className="space-y-6">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                             <div className="space-y-2">
-                                                <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">First Name</label>
+                                                <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">First Name</label>
                                                 <input 
                                                     required 
-                                                    className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
-                                                    placeholder="John"
+                                                    className="w-full bg-surface-container-high/40 border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
+                                                    placeholder="Enter first name"
                                                     value={formData.firstName}
                                                     onChange={e => setFormData({...formData, firstName: e.target.value})}
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Last Name</label>
+                                                <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Last Name</label>
                                                 <input 
                                                     required 
-                                                    className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
-                                                    placeholder="Doe"
+                                                    className="w-full bg-surface-container-high/40 border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
+                                                    placeholder="Enter last name"
                                                     value={formData.lastName}
                                                     onChange={e => setFormData({...formData, lastName: e.target.value})}
                                                 />
@@ -211,12 +211,12 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
                                         </div>
                                         
                                         <div className="space-y-2">
-                                            <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Professional Email</label>
+                                            <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Email Address</label>
                                             <input 
                                                 required 
                                                 type="email"
-                                                className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
-                                                placeholder="john@example.com"
+                                                className="w-full bg-surface-container-high/40 border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
+                                                placeholder="Enter your email"
                                                 value={formData.email}
                                                 onChange={e => setFormData({...formData, email: e.target.value})}
                                             />
@@ -224,19 +224,19 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
 
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                             <div className="space-y-2">
-                                                <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Portfolio <span className="opacity-40">(Optional)</span></label>
+                                                <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Portfolio <span className="opacity-40">(Optional)</span></label>
                                                 <input 
-                                                    className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
-                                                    placeholder="https://..."
+                                                    className="w-full bg-surface-container-high/40 border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
+                                                    placeholder="Link to your portfolio"
                                                     value={formData.portfolioUrl}
                                                     onChange={e => setFormData({...formData, portfolioUrl: e.target.value})}
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">GitHub <span className="opacity-40">(Optional)</span></label>
+                                                <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">GitHub <span className="opacity-40">(Optional)</span></label>
                                                 <input 
-                                                    className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
-                                                    placeholder="https://github.com/..."
+                                                    className="w-full bg-surface-container-high/40 border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm backdrop-blur-md" 
+                                                    placeholder="Link to your GitHub"
                                                     value={formData.githubUrl}
                                                     onChange={e => setFormData({...formData, githubUrl: e.target.value})}
                                                 />
@@ -245,7 +245,7 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
 
                                         {/* Resume Upload Section */}
                                         <div className="space-y-2">
-                                            <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Resume / CV (PDF/DOCX)</label>
+                                            <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Resume / CV (PDF/DOCX)</label>
                                             <div className="relative group">
                                                 <input 
                                                     type="file"
@@ -284,11 +284,11 @@ const ApplicationModal = ({ role, isOpen, onClose }) => {
                                         </div>
 
                                         <div className="space-y-2">
-                                            <label className="text-[10px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Strategic Intent</label>
+                                            <label className="text-[10px] uppercase font-black text-on-surface tracking-widest ml-1">Why do you want to join?</label>
                                             <textarea 
                                                 required
-                                                className="w-full bg-surface-container-high/40 border border-white/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-white/40 dark:placeholder:text-white/40 font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm min-h-[120px] resize-none backdrop-blur-md" 
-                                                placeholder="Tell us about your architectural background..."
+                                                className="w-full bg-surface-container-high/40 border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant font-bold focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all text-sm min-h-[120px] resize-none backdrop-blur-md" 
+                                                placeholder="Tell us why you are a good fit..."
                                                 value={formData.message}
                                                 onChange={e => setFormData({...formData, message: e.target.value})}
                                             />
@@ -392,7 +392,7 @@ const Careers = () => {
                 )}
 
                 {/* Section 1: Hero */}
-                <section className="relative pt-8 pb-12 md:pt-10 md:pb-16 overflow-hidden px-8 md:px-26">
+                <section className="relative pt-1 pb-12 md:pt-1 md:pb-16 overflow-hidden px-8 md:px-26">
                     <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div 
                             initial={{ opacity: 0, x: -30 }}
@@ -653,8 +653,8 @@ const Careers = () => {
                             <div className="absolute -inset-3 bg-primary/10 rounded-[2.5rem] blur-xl"></div>
                             <div className="relative glass-card rounded-[2.5rem] overflow-hidden border-primary/20 aspect-video flex items-center justify-center">
                                 <img 
-                                    src="/assets/globe-visual.png" 
-                                    className="w-full h-full object-cover opacity-60" 
+                                    src="/assets/code-preview.png" 
+                                    className="w-full h-full object-contain opacity-60" 
                                     alt="Culture Visualization" 
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
@@ -744,8 +744,8 @@ const Careers = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-outline-variant/10 bg-background group">
                                 <img 
-                                    src="/assets/globe-visual.png" 
-                                    className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-1000" 
+                                    src="/assets/infra.png" 
+                                    className="w-full h-full object-contain opacity-70 group-hover:scale-105 transition-transform duration-1000" 
                                     alt="Global Network" 
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>

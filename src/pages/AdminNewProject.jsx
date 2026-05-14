@@ -149,8 +149,8 @@ const AdminNewProject = () => {
                         arrow_back
                     </Link>
                     <div>
-                        <h2 className="text-3xl font-black text-on-surface tracking-tighter uppercase">Deploy New Asset</h2>
-                        <p className="text-on-surface-variant font-medium mt-1">Upload architecture to secure S3 vault and publish to marketplace.</p>
+                        <h2 className="text-3xl font-black text-on-surface tracking-tighter uppercase">Create New Project</h2>
+                        <p className="text-on-surface-variant font-medium mt-1">Fill out the details below to publish a new project to the marketplace.</p>
                     </div>
                 </div>
 
@@ -164,18 +164,18 @@ const AdminNewProject = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                            <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Project Title</label>
-                            <input required name="title" value={formData.title} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-white/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-outline dark:placeholder:text-white/40" placeholder="e.g. NeuralStack Framework" />
+                            <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Project Title</label>
+                            <input required name="title" value={formData.title} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="e.g. NeuralStack Framework" />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Price (INR)</label>
-                            <input required name="price" value={formData.price} onChange={handleChange} type="number" step="0.01" min="0" className="w-full bg-surface-container-highest border border-white/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-outline dark:placeholder:text-white/40" placeholder="49.99" />
+                            <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Price (INR)</label>
+                            <input required name="price" value={formData.price} onChange={handleChange} type="number" step="0.01" min="0" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="49.99" />
                         </div>
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Description</label>
-                        <textarea required name="description" value={formData.description} onChange={handleChange} rows="4" className="w-full bg-surface-container-highest border border-white/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none resize-none transition-all placeholder:text-outline dark:placeholder:text-white/40" placeholder="Detailed architectural description..."></textarea>
+                        <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Description</label>
+                        <textarea required name="description" value={formData.description} onChange={handleChange} rows="4" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none resize-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="Enter project description..."></textarea>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -204,8 +204,8 @@ const AdminNewProject = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-[10px] font-black tracking-widest uppercase text-white dark:text-white">Tech Stack (Comma Separated)</label>
-                        <input required name="techStack" value={formData.techStack} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-white/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-outline dark:placeholder:text-white/40" placeholder="React, Node.js, MongoDB" />
+                        <label className="text-[10px] font-black tracking-widest uppercase text-on-surface">Tech Stack (Comma Separated)</label>
+                        <input required name="techStack" value={formData.techStack} onChange={handleChange} type="text" className="w-full bg-surface-container-highest border border-outline-variant/20 dark:border-white/20 rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary text-on-surface outline-none transition-all placeholder:text-on-surface-variant placeholder:opacity-50" placeholder="React, Node.js, MongoDB" />
                     </div>
 
                     <div className="pt-6 border-t border-outline-variant/10">
@@ -262,7 +262,7 @@ const AdminNewProject = () => {
                             disabled={loading}
                             className="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:pointer-events-none"
                         >
-                            {loading ? 'Processing...' : 'Deploy to Vault'}
+                            {loading ? 'Creating...' : 'Create Project'}
                         </button>
                     </div>
                 </form>

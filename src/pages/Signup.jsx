@@ -4,7 +4,6 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Shield, 
-    Zap, 
     Layers, 
     Cpu, 
     ArrowRight, 
@@ -20,16 +19,19 @@ import {
 import useAuthStore from '../store/useAuthStore';
 import api from '../lib/axiosInstance';
 
-const FeatureBadge = ({ icon: Icon, text }) => (
-    <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 backdrop-blur-md"
-    >
-        <Icon size={12} className="text-primary" />
-        <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/70">{text}</span>
-    </motion.div>
-);
+const FeatureBadge = ({ icon, text }) => {
+    const Icon = icon;
+    return (
+        <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 backdrop-blur-md"
+        >
+            <Icon size={12} className="text-primary" />
+            <span className="text-[9px] font-black uppercase tracking-widest text-on-surface/70">{text}</span>
+        </motion.div>
+    );
+};
 
 const Signup = () => {
     const [form, setForm] = useState({ firstName: '', lastName: '', email: '', password: '' });
@@ -233,12 +235,12 @@ const Signup = () => {
 
                             <div className="mb-8 pt-4 lg:pt-8">
                                 <div className="flex items-center gap-4 mb-3">
-                                    <h2 className="text-4xl font-black tracking-tight text-on-surface">Register Identity</h2>
+                                    <h2 className="text-4xl font-black tracking-tight text-on-surface">Create Account</h2>
                                     <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shadow-inner border border-primary/20">
                                         <User size={18} />
                                     </div>
                                 </div>
-                                <p className="text-on-surface-variant text-sm font-medium opacity-80">Establish your terminal credentials and access key.</p>
+                                <p className="text-on-surface-variant text-sm font-medium opacity-80">Join the network and start building your legacy</p>
                             </div>
 
                             {error && (
@@ -255,31 +257,31 @@ const Signup = () => {
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-[11px] uppercase font-black text-white dark:text-white tracking-widest ml-1">First Name</label>
+                                        <label className="text-[11px] uppercase font-black text-on-surface tracking-widest ml-1">First Name</label>
                                         <input 
                                             required
                                             type="text"
                                             value={form.firstName}
                                             onChange={e => setForm({...form, firstName: e.target.value})}
-                                            placeholder="John"
-                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface/50 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
+                                            placeholder="Enter first name"
+                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-[11px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Last Name</label>
+                                        <label className="text-[11px] uppercase font-black text-on-surface tracking-widest ml-1">Last Name</label>
                                         <input 
                                             required
                                             type="text"
                                             value={form.lastName}
                                             onChange={e => setForm({...form, lastName: e.target.value})}
-                                            placeholder="Doe"
-                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface/50 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
+                                            placeholder="Enter last name"
+                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl px-5 py-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2.5">
-                                    <label className="text-[11px] uppercase font-black text-white dark:text-white tracking-widest ml-1">Professional Email</label>
+                                    <label className="text-[11px] uppercase font-black text-on-surface tracking-widest ml-1">Email Address</label>
                                     <div className="relative group">
                                         <Mail size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" />
                                         <input 
@@ -287,16 +289,16 @@ const Signup = () => {
                                             type="email"
                                             value={form.email}
                                             onChange={e => setForm({...form, email: e.target.value})}
-                                            placeholder="dev@cvtech.io"
-                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-6 py-4 text-on-surface placeholder:text-on-surface/50 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
+                                            placeholder="Enter your email"
+                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-6 py-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2.5">
                                     <div className="flex justify-between items-center px-1">
-                                        <label className="text-[11px] uppercase font-black text-white dark:text-white tracking-widest">Access Key</label>
-                                        <Link to="#" className="text-[10px] font-black uppercase text-primary tracking-widest hover:underline opacity-70">Forgot Key?</Link>
+                                        <label className="text-[11px] uppercase font-black text-on-surface tracking-widest">Password</label>
+                                        <Link to="#" className="text-[10px] font-black uppercase text-primary tracking-widest hover:underline opacity-70">Forgot Password?</Link>
                                     </div>
                                     <div className="relative group">
                                         <Lock size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" />
@@ -306,7 +308,7 @@ const Signup = () => {
                                             value={form.password}
                                             onChange={e => setForm({...form, password: e.target.value})}
                                             placeholder="••••••••••••"
-                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-14 py-4 text-on-surface placeholder:text-on-surface/50 dark:placeholder:text-white/40 font-medium focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
+                                            className="w-full bg-surface-container-low border border-outline-variant/20 dark:border-white/20 rounded-2xl pl-14 pr-14 py-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none transition-all text-sm"
                                         />
                                         <button 
                                             type="button"
@@ -323,7 +325,7 @@ const Signup = () => {
                                     className="w-full py-5 bg-primary text-on-primary font-black uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 mt-4 relative overflow-hidden group"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                    INITIALIZE PIPELINE <ArrowRight size={16} />
+                                    CREATE ACCOUNT <ArrowRight size={16} />
                                 </button>
                             </form>
 
@@ -335,7 +337,7 @@ const Signup = () => {
                             </div>
 
                             <p className="text-center text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mt-8">
-                                Already Authenticated? <Link to="/login" className="text-primary hover:underline">Establish Link</Link>
+                                Already have an account? <Link to="/login" className="text-primary hover:underline">Login</Link>
                             </p>
                         </div>
                     </div>
