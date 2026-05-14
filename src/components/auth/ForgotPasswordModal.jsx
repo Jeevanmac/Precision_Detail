@@ -27,17 +27,22 @@ const ForgotPasswordModal = ({ isOpen, onClose }) => {
         setLoading(true);
         setError('');
         try {
+            console.log('📨 Initiating OTP dispatch request...');
             const res = await api.post('/auth/forgot-password', { email });
+            
             if (res.data.success) {
+                console.log('✅ OTP dispatched successfully.');
                 setStep(2);
                 setCooldown(30);
                 toast.success('Authorization code dispatched.');
             } else {
-                setError(res.data.message || 'Failed to send OTP email.');
-                toast.error(res.data.message || 'Failed to send OTP email.');
+                const msg = res.data.message || 'Failed to send OTP email.';
+                setError(msg);
+                toast.error(msg);
             }
         } catch (err) {
-            const msg = err.response?.data?.message || 'Failed to dispatch authorization code.';
+            console.error('❌ OTP dispatch request failed:', err);
+            const msg = err.response?.data?.message || 'Failed to dispatch authorization code. Please check your connection.';
             setError(msg);
             toast.error(msg);
         } finally {
